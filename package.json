@@ -1,0 +1,27 @@
+{
+  "name": "statushired-mern",
+  "version": "1.0.0",
+  "private": true,
+  "description": "StatusHired - job application tracker (MERN: MongoDB, Express, React, Node)",
+  "scripts": {
+    "install:all": "npm install && npm --prefix server install && npm --prefix client install",
+    "dev": "concurrently -n api,web -c blue,green \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "build": "npm --prefix client run build",
+    "start": "cross-env NODE_ENV=production npm --prefix server start",
+    "seed": "npm --prefix server run seed",
+    "test": "npm run test:api && npm run test:e2e",
+    "test:api": "node tests/api.test.mjs",
+    "test:e2e": "node tests/e2e.mjs",
+    "test:install": "npx playwright install chromium"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "playwright": "^1.49.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

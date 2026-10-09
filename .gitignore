@@ -1,0 +1,9 @@
+node_modules/
+dist/
+build/
+.env
+!.env.example
+server/uploads/
+*.log
+.DS_Store
+tests/screenshots/

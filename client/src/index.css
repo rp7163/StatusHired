@@ -1,0 +1,252 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Re-tint Tailwind's slate scale to the portfolio's green-greys so every
+   legacy `slate-*` utility in the codebase matches the emerald theme. */
+@theme {
+  --color-slate-50: #f6fbf8;
+  --color-slate-100: #eef6f1;
+  --color-slate-200: #e1ebe5;
+  --color-slate-300: #c9d8d0;
+  --color-slate-400: #8a9a92;
+  --color-slate-500: #54635b;
+  --color-slate-600: #43524a;
+  --color-slate-700: #2a3b32;
+  --color-slate-800: #1d2a23;
+  --color-slate-900: #0f1813;
+  --color-slate-950: #060a08;
+  --font-heading: "Outfit", "Plus Jakarta Sans", "Inter", sans-serif;
+}
+
+@layer base {
+  :root {
+    /* Portfolio palette (patelrudra.vercel.app) — light */
+    --bg-main: #F7FBF8;
+    --bg-elev: #FFFFFF;
+    --bg-elev-2: #F1F8F4;
+    --bg-card: #FFFFFF;
+    --bg-input: #F6FBF8;
+    --text-primary: #0C1A13;
+    --text-secondary: #54635B;
+    --text-dim: #8A9A92;
+    --separator: #E1EBE5;
+    --separator-strong: #C9D8D0;
+    --accent: #059669;
+    --accent-2: #14B8A6;
+    --accent-hover: #047857;
+    --accent-soft: rgba(5, 150, 105, 0.10);
+    --accent-glow: rgba(5, 150, 105, 0.20);
+    --gradient: linear-gradient(135deg, #059669 0%, #14B8A6 100%);
+    --gradient-soft: linear-gradient(135deg, rgba(5, 150, 105, 0.08), rgba(20, 184, 166, 0.05));
+    --shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 16px 50px rgba(0, 0, 0, 0.08);
+    --shadow-glow: 0 0 30px rgba(5, 150, 105, 0.12);
+    --grid-color: rgba(5, 150, 105, 0.05);
+
+    --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+    --font-heading: "Outfit", "Plus Jakarta Sans", "Inter", sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+    /* Stage colors */
+    --stage-saved: #8AA097;
+    --stage-applied: #10B981;
+    --stage-assessment: #FF9F0A;
+    --stage-interview: #BF5AF2;
+    --stage-selected: #30D158;
+    --stage-rejected: #FF453A;
+  }
+
+  html.dark {
+    --bg-main: #060A08;
+    --bg-elev: #0C1410;
+    --bg-elev-2: #111C16;
+    --bg-card: #0F1813;
+    --bg-input: #142019;
+    --text-primary: #E8F5EE;
+    --text-secondary: #8AA097;
+    --text-dim: #5C6F67;
+    --separator: #1D2A23;
+    --separator-strong: #2A3B32;
+    --accent: #10B981;
+    --accent-2: #2DD4BF;
+    --accent-hover: #34D399;
+    --accent-soft: rgba(16, 185, 129, 0.14);
+    --accent-glow: rgba(16, 185, 129, 0.35);
+    --gradient: linear-gradient(135deg, #34D399 0%, #2DD4BF 100%);
+    --gradient-soft: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(45, 212, 191, 0.10));
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.6);
+    --shadow-glow: 0 0 40px rgba(16, 185, 129, 0.25);
+    --grid-color: rgba(16, 185, 129, 0.04);
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background-color 150ms ease, color 150ms ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* subtle grid like the portfolio hero */
+    background-image:
+      linear-gradient(var(--grid-color) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  *, *::before, *::after {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: #fff;
+  }
+}
+
+/* ---------- Portfolio-style utilities ---------- */
+
+/* Gradient text (like "Computer Engineer" in the hero) */
+.gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Gradient fill (buttons, logo pill, dividers) */
+.gradient-bg {
+  background: var(--gradient);
+}
+
+/* Glass top navbar */
+.frosted-topbar {
+  background-color: color-mix(in srgb, var(--bg-main) 60%, transparent);
+  backdrop-filter: saturate(180%) blur(24px);
+  -webkit-backdrop-filter: saturate(180%) blur(24px);
+  border-bottom: 1px solid color-mix(in srgb, var(--separator) 50%, transparent);
+}
+
+/* Pill nav container */
+.nav-pill {
+  background: var(--bg-elev);
+  border: 1px solid var(--separator);
+  border-radius: 999px;
+  padding: 0.3rem;
+}
+
+.nav-pill-link {
+  color: var(--text-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+.nav-pill-link:hover {
+  color: var(--text-primary);
+  background: var(--accent-soft);
+}
+.nav-pill-link.active {
+  background: var(--gradient);
+  color: #fff;
+  box-shadow: 0 6px 18px var(--accent-glow);
+}
+
+/* Cards */
+.apple-card {
+  background-color: var(--bg-card);
+  border-radius: 16px;
+  border: 1px solid var(--separator);
+  box-shadow: var(--shadow);
+}
+
+html.dark .apple-card {
+  box-shadow: none;
+}
+
+/* Section eyebrow label (● ABOUT) */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+/* Icon social button (footer / profile) */
+.social-btn {
+  width: 44px;
+  height: 44px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 12px;
+  border: 1px solid var(--separator);
+  background: var(--bg-elev);
+  color: var(--text-secondary);
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.social-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(138, 160, 151, 0.35);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(138, 160, 151, 0.6);
+}
+
+/* Portfolio dark mode uses dark text on the bright gradient pill */
+html.dark .nav-pill-link.active {
+  color: #052e1f;
+}

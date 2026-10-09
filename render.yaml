@@ -1,0 +1,36 @@
+# Render.com blueprint for the API  (Dashboard -> New -> Blueprint -> pick this repo)
+# The React app is deployed separately on Vercel (see README "Deploy").
+services:
+  - type: web
+    name: statushired-api
+    runtime: node
+    rootDir: server
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: USE_MEMORY_DB
+        value: "false"
+      - key: MONGODB_URI
+        sync: false            # paste your Atlas URI in the Render dashboard
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 30d
+      - key: CLIENT_ORIGIN
+        sync: false            # e.g. https://job-arena.vercel.app,https://*.vercel.app
+      - key: FILE_STORAGE
+        value: gridfs          # files live in MongoDB -> survive redeploys
+      - key: UPLOAD_DIR
+        value: uploads
+      - key: SEED_DEMO
+        value: "false"
+      - key: EXPOSE_DEV_OTP
+        value: "false"
+      - key: GMAIL_USER
+        sync: false
+      - key: GMAIL_APP_PASSWORD
+        sync: false
