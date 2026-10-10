@@ -218,10 +218,10 @@ export const Login = () => {
               />
 
               <span className="text-[13px] font-semibold text-[#0C1A13] dark:text-[#E8F5EE]">
-                {isConfigured ? 'Database Ready & Active' : 'API Server Not Reachable'}
+                {isConfigured ? 'Ready to use' : 'Please wait 1 minute before signing up'}
               </span>
             </div>
-            {!isConfigured && (
+            {/* {!isConfigured && (
               <div className="flex items-center gap-2">
                 <button
                   type="button"
@@ -245,10 +245,10 @@ export const Login = () => {
                   )}
                 </button>
               </div>
-            )}
+            )} */}
           </div>
 
-          {showKeyInstructions && !isConfigured && (
+          {/* {showKeyInstructions && !isConfigured && (
             <div className="mt-4 pt-3 border-t border-[#E1EBE5] dark:border-[#1D2A23] text-[12px] text-[#54635B] dark:text-[#8AA097] space-y-2">
               <p className="font-medium text-[#0C1A13] dark:text-[#E8F5EE]">
                 To connect the app to your MongoDB backend:
@@ -287,7 +287,7 @@ export const Login = () => {
                 Open Full Setup Guide
               </button>
             </div>
-          )}
+          )} */}
         </div>
 
         {/* Form Card */}
@@ -437,9 +437,7 @@ export const Login = () => {
                 <div className="p-3 rounded-[12px] bg-[#10B981]/8 border border-[#10B981]/15 flex items-start gap-2.5 text-[12px] text-[#0C1A13] dark:text-[#E8F5EE] leading-relaxed">
                   <ShieldCheck className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
                   <span>
-                    <strong>1-Time Security:</strong> A 6-digit confirmation code will be sent to your email
-                    to verify ownership. Your account is only created after the code is verified. Everyday
-                    logins will never ask for extra codes.
+                    <strong>1-Time Security:</strong> A 6-digit confirmation code will be sent to your email to verify ownership. Your account is only created after the code is verified.
                   </span>
                 </div>
               )}
@@ -455,7 +453,7 @@ export const Login = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full h-[44px] rounded-full bg-[#10B981] hover:bg-[#059669] disabled:opacity-50 text-white text-[15px] font-medium transition-all active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer shadow-xs mt-2"
+                className="mx-auto px-4 w-fit h-[44px] rounded-full bg-[#10B981] hover:bg-[#059669] disabled:opacity-50 text-white text-[15px] font-medium transition-all active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer shadow-xs mt-2"
               >
                 {isLoading ? (
                   <Loader2 className="w-4 h-4 animate-spin" />

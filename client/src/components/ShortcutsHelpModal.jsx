@@ -41,9 +41,9 @@ export const ShortcutsHelpModal = ({ isOpen, onClose }) => {
             <span className="text-xs sm:text-sm font-medium text-slate-700 dark:text-[#E8F5EE]">
               {sc.description}
             </span>
-            <kbd className="px-2 py-1 rounded-lg text-xs font-mono font-bold text-slate-800 dark:text-slate-200 bg-white dark:bg-[#0F1813] border border-[#E1EBE5] dark:border-[#1D2A23] shadow-2xs">
+            {/* <kbd className="px-2 py-1 rounded-lg text-xs font-mono font-bold text-slate-800 dark:text-slate-200 bg-white dark:bg-[#0F1813] border border-[#E1EBE5] dark:border-[#1D2A23] shadow-2xs">
               {sc.key}
-            </kbd>
+            </kbd> */}
           </div>
         ))}
       </div>

@@ -140,9 +140,9 @@ export const CommandPalette = ({ isOpen, onClose, onSelectApplication }) => {
               />
 
               <div className="flex items-center gap-1.5 shrink-0 ml-2">
-                <kbd className="hidden sm:inline-block px-1.5 py-0.5 rounded text-[10px] font-bold text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-[#060A08] border border-[#E1EBE5] dark:border-[#1D2A23]">
+                {/* <kbd className="hidden sm:inline-block px-1.5 py-0.5 rounded text-[10px] font-bold text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-[#060A08] border border-[#E1EBE5] dark:border-[#1D2A23]">
                   ESC
-                </kbd>
+                </kbd> */}
                 <button
                   type="button"
                   onClick={onClose}

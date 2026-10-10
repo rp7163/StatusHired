@@ -250,3 +250,13 @@ html.dark .apple-card {
 html.dark .nav-pill-link.active {
   color: #052e1f;
 }
+
+.cambria-text {
+  font-family: cambria;
+  font-size: 30px;
+}
+
+.comic-text {
+  font-family: "Georgia";
+  font-size: 20px;
+}

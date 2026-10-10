@@ -12,17 +12,17 @@
 export const about = {
   // ---------- Hero ----------
   name: 'Rudra Patel',
-  role: 'Computer Engineer',
-  badge: 'Open to Software Engineer and Web Developer roles',
-  tagline: 'I build full-stack web apps and solve DSA problems across multiple platforms.',
+  // role: 'Computer Engineer',
+  // badge: 'Open to Software Engineer and Web Developer roles',
+  tagline: 'Final Year B.Tech Computer Engineering student at PDEU, Gandhinagar — building thoughtful web apps, solving 1300+ DSA problems, and chasing clean code.',
   intro:
-    'Final Year B.Tech Computer Engineering student at PDEU, Gandhinagar — building thoughtful web apps, solving 1300+ DSA problems, and chasing clean code.',
+    'I build full-stack web apps and solve DSA problems across multiple platforms.',
   degree: 'B.Tech Computer Engineering · PDEU',
   location: 'Ahmedabad, Gujarat, India',
   email: '23bcp401@sot.pdpu.ac.in',
   phone: '+91 7573092630',
   status: 'Open to opportunities',
-  photo: '', // e.g. '/me.jpg' (put the file in client/public). Empty = use your profile photo / default avatar.
+  photo: './rudra.png', // e.g. '/me.jpg' (put the file in client/public). Empty = use your profile photo / default avatar.
 
   // Buttons in the hero
   resumeUrl: 'https://drive.google.com/file/d/1zv_GIW5gmhUjGaK1VjyCZuLHy80dT-Tp/view',
@@ -98,11 +98,12 @@ export const about = {
     },
     {
       emoji: '🚧',
-      title: 'AI-powered Job Tracker',
-      period: 'In building phase',
-      description: 'This project will be done this month.',
-      tech: ['MERN'],
-      url: '',
+      title: 'Status Hired — Job Application Tracker',
+      period: 'Sept 2026 - Oct 2026',
+      description: 'A full-stack web app to keep track of job applications in one place. Users can add every job they apply to, move it across stages like Applied, Interview and Offer on a drag-and-drop board, upload and preview their resumes, and set reminders for interviews and follow-ups. It has secure login with email verification, a personal profile page, and all data is saved per user in MongoDB. Built with the MERN stack and deployed live.',
+      tech: ['React', 'Vite', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB', 'Socket.io', 'JWT'],
+      liveURL: 'https://status-hired.vercel.app/',
+      url:'https://github.com/rp7163/StatusHired'
     },
   ],
 

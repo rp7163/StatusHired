@@ -97,9 +97,9 @@ export const ResumePreviewModal = ({ resume, isOpen, onClose, getSignedUrl }) =>
 
         {/* Footer Actions */}
         <div className="flex items-center justify-between pt-2">
-          <span className="text-xs text-slate-400 dark:text-slate-500">
+          {/* <span className="text-xs text-slate-400 dark:text-slate-500">
             Link auto-refreshes every 60 seconds
-          </span>
+          </span> */}
 
           <div className="flex items-center gap-2">
             {signedUrl && (

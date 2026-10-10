@@ -77,8 +77,8 @@ export const About = () => {
               Hi, I&apos;m <span className="gradient-text">{a.name}</span>
             </h1>
             {a.role && <p className="mt-2 text-[20px] sm:text-[24px] font-semibold text-[#54635B] dark:text-[#8AA097]">{a.role}</p>}
-            {a.tagline && <p className="mt-3 text-[16px] text-[#54635B] dark:text-[#8AA097]">{a.tagline}</p>}
-            {a.intro && <p className="mt-4 max-w-2xl mx-auto lg:mx-0 text-[15px] leading-relaxed text-[#54635B] dark:text-[#8AA097]">{a.intro}</p>}
+            {/* {a.tagline && <p className="mt-3 text-[16px] text-[#54635B] dark:text-[#8AA097]">{a.tagline}</p>} */}
+            {/* {a.intro && <p className="mt-4 max-w-2xl mx-auto lg:mx-0 text-[15px] leading-relaxed text-[#54635B] dark:text-[#8AA097]">{a.intro}</p>} */}
 
             <div className="mt-5 flex flex-wrap justify-center lg:justify-start gap-2 text-[13px] text-[#54635B] dark:text-[#8AA097]">
               {a.degree && <Chip icon={GraduationCap}>{a.degree}</Chip>}
@@ -99,7 +99,7 @@ export const About = () => {
               )}
             </div>
 
-            {a.socials?.length > 0 && (
+            {/* {a.socials?.length > 0 && (
               <div className="mt-7 flex flex-wrap justify-center lg:justify-start gap-3">
                 {a.socials.map((s) => {
                   const Icon = ICONS[s.icon] || LinkIcon;
@@ -110,7 +110,7 @@ export const About = () => {
                   );
                 })}
               </div>
-            )}
+            )} */}
           </div>
 
           <div className="relative mx-auto">
@@ -121,7 +121,7 @@ export const About = () => {
           </div>
         </div>
 
-        {a.stats?.length > 0 && (
+        {/* {a.stats?.length > 0 && (
           <div className="relative mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
             {a.stats.map((s, i) => (
               <motion.div key={s.label} {...fade(i)} className="rounded-[16px] border border-[#E1EBE5] dark:border-[#1D2A23] bg-[var(--bg-elev-2)] p-5 text-center">
@@ -130,7 +130,7 @@ export const About = () => {
               </motion.div>
             ))}
           </div>
-        )}
+        )} */}
       </section>
 
       {/* ================= ABOUT ================= */}
@@ -144,14 +144,14 @@ export const About = () => {
               <Fact label="Location" value={a.location} />
               <Fact label="Email" value={a.email} href={a.email ? `mailto:${a.email}` : null} />
               <Fact label="Phone" value={a.phone} href={a.phone ? `tel:${a.phone.replace(/\s+/g, '')}` : null} />
-              <Fact label="Status" value={a.status} accent />
+              {/* <Fact label="Status" value={a.status} accent /> */}
             </motion.div>
           </div>
         </Section>
       )}
 
       {/* ================= SKILLS ================= */}
-      {a.skills?.length > 0 && (
+      {/* {a.skills?.length > 0 && (
         <Section eyebrow="Skills" title="My toolbox" subtitle="Technologies I use to design, build, and ship products that users love.">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {a.skills.map((g, i) => (
@@ -166,16 +166,21 @@ export const About = () => {
             ))}
           </div>
         </Section>
-      )}
+      )} */}
 
       {/* ================= PROJECTS ================= */}
-      {a.projects?.length > 0 && (
+      {/* {a.projects?.length > 0 && (
         <Section eyebrow="Projects" title="Things I've built" subtitle="A selection of projects that taught me the most about real-world engineering.">
           <div className="grid md:grid-cols-2 gap-4">
             {a.projects.map((p, i) => (
               <motion.article key={p.title} {...fade(i)} className="apple-card p-6 flex flex-col hover:-translate-y-1 hover:shadow-[var(--shadow-glow)] transition-all">
                 <div className="flex items-start justify-between gap-3">
                   <div className="w-12 h-12 rounded-[14px] bg-[var(--accent-soft)] flex items-center justify-center text-[24px]">{p.emoji}</div>
+                  {p.liveURL && (
+                    <a href={p.liveURL} target="_blank" rel="noopener noreferrer" className="social-btn !w-10 !h-10" title="Open project" aria-label="Open project">
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  )}
                   {p.url && (
                     <a href={p.url} target="_blank" rel="noopener noreferrer" className="social-btn !w-10 !h-10" title="Open project" aria-label="Open project">
                       <ExternalLink className="w-4 h-4" />
@@ -196,10 +201,10 @@ export const About = () => {
             ))}
           </div>
         </Section>
-      )}
+      )} */}
 
       {/* ================= EDUCATION ================= */}
-      {a.education?.length > 0 && (
+      {/* {a.education?.length > 0 && (
         <Section eyebrow="Education" title="Where I studied" subtitle="My academic journey so far.">
           <div className="relative pl-6 sm:pl-8 space-y-4 before:absolute before:left-[9px] sm:before:left-[13px] before:top-2 before:bottom-2 before:w-[2px] before:gradient-bg before:opacity-40 before:rounded-full">
             {a.education.map((e, i) => (
@@ -218,10 +223,10 @@ export const About = () => {
             ))}
           </div>
         </Section>
-      )}
+      )} */}
 
       {/* ================= ACHIEVEMENTS ================= */}
-      {(a.achievements?.length > 0 || a.codingProfiles?.length > 0) && (
+      {/* {(a.achievements?.length > 0 || a.codingProfiles?.length > 0) && (
         <Section eyebrow="Achievements" title="Milestones & recognition" subtitle="Competitive programming, academics, and beyond.">
           <div className="grid lg:grid-cols-[1.4fr_1fr] gap-4">
             {a.achievements?.length > 0 && (
@@ -261,7 +266,7 @@ export const About = () => {
             )}
           </div>
         </Section>
-      )}
+      )} */}
 
       {/* ================= CONTACT ================= */}
       {(a.email || a.phone) && (

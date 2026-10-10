@@ -24,7 +24,7 @@ router.post(
     if (password.length < 6) return res.status(400).json({ success: false, error: 'Password must be at least 6 characters.' });
 
     if (await User.exists({ email })) {
-      return res.status(409).json({ success: false, error: 'This email is already registered. Please sign in instead.' });
+      return res.status(409).json({ success: false, error: 'This email is already registered. Please sign in instead. If you forgot your password then contact 23bcp401@sot.pdpu.ac.in' });
     }
 
     updatePendingPassword(email, password);
@@ -58,7 +58,7 @@ router.post(
     if (!result.ok) return res.status(400).json({ success: false, error: result.error });
 
     if (await User.exists({ email })) {
-      return res.status(409).json({ success: false, error: 'This email is already registered. Please sign in instead.' });
+      return res.status(409).json({ success: false, error: 'This email is already registered. Please sign in instead. If you forgot your password then contact 23bcp401@sot.pdpu.ac.in' });
     }
 
     const user = await User.create({ email, password_hash: await User.hashPassword(result.password), email_confirmed: true });

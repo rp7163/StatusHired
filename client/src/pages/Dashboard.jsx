@@ -100,68 +100,73 @@ export const Dashboard = () => {
           {greeting}{displayName ? ', ' : ''}
           {displayName && <span className="gradient-text">{displayName}</span>}
         </h1>
-        <p className="mt-1.5 text-[15px] text-[#54635B] dark:text-[#8AA097]">Here is where your job search stands today.</p>
+      </div>
+
+      <div className="mx-auto mb-5 w-fit rounded-xl border border-emerald-900/40 bg-emerald-100/80 px-6 py-2.5 text-center text-black shadow-lg dark:border-emerald-500/30 dark:bg-emerald-950/30 dark:text-emerald-100">
+        <h2 className="cambria-text !text-[25px] font-bold tracking-wide">
+          Job  Application Summary
+        </h2>
       </div>
 
       {/* 4 Clean Apple Health Stat Cards: small colored dot, label in muted text, big 40px number */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {/* Card 1: Total Applications */}
-        <div className="apple-card p-5 transition-colors">
+        <div className="apple-card p-5 transition-colors !bg-blue-200 dark:!bg-[var(--bg-card)] border">
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] shrink-0" />
-            <span className="text-[13px] text-[#54635B] dark:text-[#8AA097] font-medium">
+            {/* <span className="w-2.5 h-2.5 rounded-full bg-[#000000] shrink-0" /> */}
+            <span className="text-blue-800 mx-auto text-[13px] text-[#54635B] dark:text-[#8AA097] font-medium comic-text">
               Total applications
             </span>
           </div>
-          <div className="text-[40px] font-bold tracking-tight text-[#0C1A13] dark:text-[#E8F5EE] mt-2.5 leading-none">
+          <div className="text-blue-950 font-bold tracking-tight text-[#0C1A13] dark:text-[#E8F5EE] mt-2 leading-none cambria-text text-center">
             <AnimatedNumber value={activeCount} />
           </div>
         </div>
 
         {/* Card 2: Active */}
-        <div className="apple-card p-5 transition-colors">
+        <div className="apple-card p-5 transition-colors !bg-yellow-100 dark:!bg-[var(--bg-card)]">
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] shrink-0" />
-            <span className="text-[13px] text-[#54635B] dark:text-[#8AA097] font-medium">
-              Assesement / Task
+            {/* <span className="w-2.5 h-2.5 rounded-full bg-[#00ffaa] shrink-0" /> */}
+            <span className="text-yellow-800 mx-auto text-[13px] text-[#54635B] dark:text-[#8AA097] font-medium comic-text">
+              OA / Task
             </span>
           </div>
-          <div className="text-[40px] font-bold tracking-tight text-[#0C1A13] dark:text-[#E8F5EE] mt-2.5 leading-none">
+          <div className="text-yellow-950 font-bold tracking-tight text-[#0C1A13] dark:text-[#E8F5EE] mt-2 leading-none cambria-text text-center ">
             <AnimatedNumber value={assessmentCount} />
           </div>
         </div>
 
         {/* Card 3: Interviews */}
-        <div className="apple-card p-5 transition-colors">
+        <div className="apple-card p-5 transition-colors !bg-violet-200 dark:!bg-[var(--bg-card)]">
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#BF5AF2] shrink-0" />
-            <span className="text-[13px] text-[#54635B] dark:text-[#8AA097] font-medium">Interviews</span>
+            {/* <span className="w-2.5 h-2.5 rounded-full bg-[#958bff] shrink-0" /> */}
+            <span className="text-violet-800 mx-auto text-[13px] text-[#54635B] dark:text-[#8AA097] font-medium comic-text">Interviews</span>
           </div>
-          <div className="text-[40px] font-bold tracking-tight text-[#0C1A13] dark:text-[#E8F5EE] mt-2.5 leading-none">
+          <div className="text-violet-950 font-bold tracking-tight text-[#0C1A13] dark:text-[#E8F5EE] mt-2 leading-none cambria-text text-center ">
             <AnimatedNumber value={interviewCount} />
           </div>
         </div>
 
-        {/* Card 1: Total Applications */}
-        <div className="apple-card p-5 transition-colors">
+        {/* Card 4: Rejected */}
+        <div className="apple-card p-5 transition-colors !bg-[#fecaca] dark:!bg-[var(--bg-card)]">
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] shrink-0" />
-            <span className="text-[13px] text-[#54635B] dark:text-[#8AA097] font-medium">Rejected</span>
+            {/* <span className="w-2.5 h-2.5 rounded-full bg-[#b91610] shrink-0" /> */}
+            <span className="text-red-800 mx-auto text-[13px]  dark:text-[#8AA097] font-medium comic-text ">Rejected</span>
           </div>
-          <div className="text-[40px] font-bold tracking-tight text-[#0C1A13] dark:text-[#E8F5EE] mt-2.5 leading-none">
+          <div className="text-red-950 font-bold tracking-tight text-[#0C1A13] dark:text-[#E8F5EE] mt-2 leading-none cambria-text text-center">
             <AnimatedNumber value={rejectCount} />
           </div>
         </div>
 
-        {/* Card 4: Selected (Offers) */}
-        <div className="apple-card p-5 transition-colors">
+        {/* Card 5: Selected (Offers) */}
+        <div className="apple-card p-5 transition-colors !bg-green-200 dark:!bg-[var(--bg-card)]">
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#30D158] shrink-0" />
-            <span className="text-[13px] text-[#54635B] dark:text-[#8AA097] font-medium">
+            {/* <span className="w-2.5 h-2.5 rounded-full bg-[#30D158] shrink-0" /> */}
+            <span className="text-green-800 mx-auto text-[13px] text-[#54635B] dark:text-[#8AA097] font-medium comic-text">
               Offers &amp; Selected
             </span>
           </div>
-          <div className="text-[40px] font-bold tracking-tight text-[#0C1A13] dark:text-[#E8F5EE] mt-2.5 leading-none">
+          <div className="text-green-950 font-bold tracking-tight text-[#0C1A13] dark:text-[#E8F5EE] mt-2 leading-none cambria-text text-center ">
             <AnimatedNumber value={selectedCount} />
           </div>
         </div>

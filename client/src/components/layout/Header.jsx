@@ -97,9 +97,17 @@ export const Header = ({ onOpenCommandPalette, onOpenSettings, onNewReminder }) 
     <header className="fixed top-0 inset-x-0 z-40 frosted-topbar">
       <div className="max-w-[1240px] mx-auto h-[76px] px-4 sm:px-6 flex items-center justify-between gap-3">
         {/* ---------- Left: logo pill ---------- */}
-        <Link to="/" className="flex items-center gap-2.5 shrink-0 group" aria-label="StatusHired home">
-          <StatusHiredLogo size={34} />
-          <span className="hidden sm:inline-flex items-center h-9 px-3.5 rounded-full gradient-bg text-white font-[Outfit] font-semibold text-[15px] tracking-tight shadow-[0_6px_18px_var(--accent-glow)] group-hover:brightness-110 transition">
+        <Link
+          to="/"
+          className="flex items-center gap-2.5 shrink-0 group"
+          aria-label="StatusHired home"
+        >
+          <StatusHiredLogo
+            size={34}
+            className="transition"
+          />
+
+          <span className="hidden sm:inline-flex items-center h-9 px-3.5 rounded-xl gradient-bg text-black font-[Outfit] font-bold !text-[15px] tracking-tight shadow-[0_6px_18px_var(--accent-glow)] brightness-130 group-hover:brightness-150 transition cambria-text">
             StatusHired
           </span>
         </Link>
@@ -131,10 +139,6 @@ export const Header = ({ onOpenCommandPalette, onOpenSettings, onNewReminder }) 
             aria-label="Search applications"
           >
             <Search className="w-4 h-4" strokeWidth={2} />
-            <span className="hidden xl:inline">Search</span>
-            <kbd className="hidden xl:inline-flex items-center px-1.5 h-5 rounded-md bg-[#F1F8F4] dark:bg-[#142019] text-[11px] font-mono text-[#8AA097]">
-              ⌘K
-            </kbd>
           </button>
 
           {/* Notifications */}
@@ -297,7 +301,7 @@ export const Header = ({ onOpenCommandPalette, onOpenSettings, onNewReminder }) 
                         <item.icon className="w-4 h-4" strokeWidth={1.9} />
                       </span>
                       <span className="flex-1">{item.label}</span>
-                      <kbd className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#F1F8F4] dark:bg-[#142019] text-[#8AA097]">{item.hint}</kbd>
+                      {/* <kbd className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#F1F8F4] dark:bg-[#142019] text-[#8AA097]">{item.hint}</kbd> */}
                     </button>
                   ))}
                 </motion.div>
