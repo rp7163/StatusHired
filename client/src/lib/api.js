@@ -1,8 +1,3 @@
-/**
- * Thin REST client for the StatusHired Express/MongoDB API.
- * Replaces the Supabase JS client: every call is a relative `/api/...` request
- * (proxied by Vite in dev, served by Express in production) with a JWT bearer token.
- */
 import { cookieStorage } from './storage.js';
 
 export const TOKEN_KEY = 'statushired_token';
@@ -57,7 +52,6 @@ export const api = {
   upload: (path, formData) => request(path, { method: 'POST', body: formData }),
 };
 
-/* ---------- Typed helpers per resource (mirror the old Supabase tables) ---------- */
 
 export const healthApi = {
   check: () => api.get('/health'),

@@ -18,12 +18,6 @@ export function signFileToken(payload, expiresInSeconds) {
   return jwt.sign({ ...payload, kind: 'file' }, SECRET(), { expiresIn: expiresInSeconds });
 }
 
-/**
- * Express middleware: requires `Authorization: Bearer <jwt>`.
- * Attaches `req.user` (mongoose doc) and `req.userId` (string).
- * This is the MERN equivalent of Supabase Row Level Security: every route
- * then scopes its queries by `req.userId`.
- */
 export async function requireAuth(req, res, next) {
   try {
     const header = req.headers.authorization || '';

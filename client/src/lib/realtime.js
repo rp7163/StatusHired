@@ -1,8 +1,3 @@
-/**
- * Socket.io subscription helper — the MERN replacement for Supabase Realtime.
- * The server emits `change` events ({ table, event }) to the signed-in user's room
- * whenever one of their rows changes; subscribers refetch the affected collection.
- */
 import { io } from 'socket.io-client';
 import { getToken } from './api.js';
 

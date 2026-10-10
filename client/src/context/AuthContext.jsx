@@ -34,7 +34,6 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
   };
 
-  // Health check (replaces the "is Supabase configured" env check) + restore session from token
   useEffect(() => {
     let cancelled = false;
 

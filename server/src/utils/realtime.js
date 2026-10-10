@@ -1,11 +1,6 @@
 import { Server } from 'socket.io';
 import { verifyToken } from '../middleware/auth.js';
 
-/**
- * Socket.io replaces Supabase Realtime. Each authenticated socket joins a
- * private room `user:<id>`; mutations call `notify(userId, table)` and the
- * React app refetches the affected collection.
- */
 let io = null;
 
 export function initRealtime(httpServer, corsOrigins) {

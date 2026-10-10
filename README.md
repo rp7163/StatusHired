@@ -89,4 +89,3 @@ StatusHired/
 
 **Rudra Patel** — B.Tech Computer Engineering, PDEU
 [Portfolio](https://patelrudra.vercel.app) · [GitHub](https://github.com/rp7163) · [LinkedIn](https://www.linkedin.com/in/rudra-patel-pdeu/)
-> Earlier version of this project was built with TypeScript + Supabase; this is a full rewrite on the MERN stack with custom JWT authentication, MongoDB/GridFS storage and Socket.io real-time sync

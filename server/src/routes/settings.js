@@ -18,7 +18,6 @@ router.get(
   })
 );
 
-// Upsert (mirrors supabase.from('user_settings').upsert(...))
 router.put(
   '/',
   asyncHandler(async (req, res) => {
