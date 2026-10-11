@@ -169,7 +169,7 @@ export const ApplicationModal = ({ isOpen, onClose, applicationToEdit, defaultSt
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 16 }}
           transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-lg rounded-[24px] bg-white dark:bg-[#0F1813] shadow-2xl p-6 sm:p-7 z-10 my-8 overflow-hidden text-left"
+          className="relative w-full max-w-lg rounded-[24px] bg-white dark:bg-[#0F1813] shadow-2xl p-6 sm:p-7 z-10 my-8 max-h-[calc(100vh-4rem)] overflow-y-auto text-left"
         >
           {/* Header with Title and Close Button */}
           <div className="flex items-center justify-between pb-4 border-b border-[#E1EBE5] dark:border-[#1D2A23] mb-5">
@@ -187,9 +187,9 @@ export const ApplicationModal = ({ isOpen, onClose, applicationToEdit, defaultSt
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Primary Fields Group */}
-            <div className="space-y-3.5">
+            <div className="space-y-3.5 ">
               {/* Company & Role */}
-              <div className="space-y-3">
+              <div className="space-y-3 ">
                 <div>
                   <label className="text-[13px] text-[#54635B] dark:text-[#8AA097] block mb-1">
                     Company name

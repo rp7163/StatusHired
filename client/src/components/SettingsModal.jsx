@@ -158,12 +158,12 @@ export const SettingsModal = ({ isOpen, onClose }) => {
           </div>
 
           {/* Database Mode Status & Setup Guide */}
-          <div className="p-3.5 rounded-[16px] bg-[#F7FBF8] dark:bg-[#142019] space-y-2">
+          {/* <div className="p-3.5 rounded-[16px] bg-[#F7FBF8] dark:bg-[#142019] space-y-2">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-[14px] font-medium text-[#0C1A13] dark:text-[#E8F5EE]">Database Status</p>
                 <p className="text-[12px] text-[#54635B] dark:text-[#8AA097]">
-                  {isConfigured ? 'Connected to MongoDB via API server' : 'API server unreachable'}
+                  {isConfigured ? 'Connected to server' : 'API server unreachable'}
                 </p>
               </div>
               <div className="flex items-center gap-1.5">
@@ -179,7 +179,7 @@ export const SettingsModal = ({ isOpen, onClose }) => {
               </div>
             </div>
 
-            <button
+            {/* <button
               type="button"
               onClick={() => setIsDbSetupOpen(true)}
               className="w-full mt-1 pt-2 border-t border-[#E1EBE5] dark:border-[#1D2A23] flex items-center justify-between text-[12px] text-[#10B981] hover:underline font-medium cursor-pointer"
@@ -189,8 +189,8 @@ export const SettingsModal = ({ isOpen, onClose }) => {
                 Server &amp; Database Setup Guide
               </span>
               <ChevronRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
+            </button> */}
+          {/* </div> */} 
 
           {/* Device Biometrics & Security Tile */}
           <div className="p-3.5 rounded-[16px] bg-[#F7FBF8] dark:bg-[#142019] flex items-center justify-between">
@@ -225,7 +225,7 @@ export const SettingsModal = ({ isOpen, onClose }) => {
           </div>
 
           {/* Export / Download Code ZIP */}
-          <a
+          {/* <a
             href="/statushired-app.zip"
             download="statushired-app.zip"
             className="flex items-center justify-between p-3.5 rounded-[16px] bg-[#F7FBF8] dark:bg-[#142019] hover:bg-[#E1EBE5] dark:hover:bg-[#1D2A23] transition-colors cursor-pointer text-[#0C1A13] dark:text-[#E8F5EE] group"
@@ -242,7 +242,7 @@ export const SettingsModal = ({ isOpen, onClose }) => {
               </div>
             </div>
             <ArrowDownToLine className="w-4 h-4 text-[#54635B] dark:text-[#8AA097] group-hover:text-[#10B981] transition-colors" />
-          </a>
+          </a> */}
 
           {/* Delete Account Danger Zone */}
           <div className="pt-2 border-t border-[#E1EBE5] dark:border-[#1D2A23] space-y-1">
@@ -255,7 +255,7 @@ export const SettingsModal = ({ isOpen, onClose }) => {
               <span>Delete Entire Account</span>
             </button>
             <p className="text-[11px] text-[#54635B] dark:text-[#8AA097] text-center">
-              Permanently deletes your account and all of its data from MongoDB
+              Permanently deletes your all data from StatusHired
             </p>
           </div>
 
