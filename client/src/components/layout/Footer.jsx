@@ -17,13 +17,14 @@ export const Footer = () => {
         {/* <div className="w-20 h-[2px] gradient-bg opacity-50 rounded-full mx-auto my-6" /> */}
 
         <p className="text-[14px] text-[#54635B] dark:text-[#8AA097]">
-          © {year} {name}. Built with the MERN stack by Rudra
+          © {year} Built with the MERN stack by <span className="text-[14px] text-black dark:text-teal-100">{name}</span>
         </p>
         {/* {location && (
           <p className="mt-1.5 text-[13px] text-[#8A9A92] dark:text-[#5C6F67] inline-flex items-center gap-1">
             Made with <Heart className="w-3.5 h-3.5 text-[#059669] dark:text-[#34D399] fill-current" /> in {location}
           </p>
         )} */}
+        <p className="text-[14px]  text-[#54635B] dark:text-[#8AA097]">Share your valuable feedback & suggestions on <a href="mailto:23bcp401@sot.pdpu.ac.in" className="text-[14px] text-black  dark:text-teal-300">23bcp401@sot.pdpu.ac.in</a></p>
       </div>
     </footer>
   );

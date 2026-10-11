@@ -31,6 +31,7 @@ export const Dashboard = () => {
   // Time-based greeting
   const greeting = useMemo(() => {
     const hour = new Date().getHours();
+    if(hour < 6) return 'Hey, Late-Night Achiever';
     if (hour < 12) return 'Good morning';
     if (hour < 17) return 'Good afternoon';
     return 'Good evening';
@@ -97,7 +98,7 @@ export const Dashboard = () => {
       <div>
         <span className="eyebrow mb-3">{todayFormatted}</span>
         <h1 className="text-[35px]! sm:text-[38px] font-bold text-[#0C1A13] dark:text-[#E8F5EE] cambria-text">
-          {greeting}{displayName ? ', ' : ''}
+          {greeting}{' '}
           {displayName && <span className="gradient-text">{displayName}</span>}
         </h1>
       </div>
@@ -112,7 +113,7 @@ export const Dashboard = () => {
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {/* Card 1: Total Applications */}
         <a href="/applications">
-          <div className="apple-card p-5 transition-colors !bg-blue-200 dark:!bg-[var(--bg-card)] border">
+          <div className="apple-card p-5 !bg-blue-200 dark:!bg-[var(--bg-card)] border !border-blue-400 dark:!border-[var(--separator)]">
             <div className="flex items-center gap-2">
               {/* <span className="w-2.5 h-2.5 rounded-full bg-[#000000] shrink-0" /> */}
               <span className="text-blue-800 mx-auto text-[13px] text-[#54635B] dark:text-[#8AA097] font-medium comic-text">
@@ -127,7 +128,7 @@ export const Dashboard = () => {
 
         {/* Card 2: Active */}
         <a href="/applications?stage=assessment">
-          <div className="apple-card p-5 transition-colors !bg-yellow-100 dark:!bg-[var(--bg-card)]">
+          <div className="apple-card p-5 transition-colors !bg-yellow-100 dark:!bg-[var(--bg-card)] border !border-yellow-400 dark:!border-[var(--separator)]">
             <div className="flex items-center gap-2">
               {/* <span className="w-2.5 h-2.5 rounded-full bg-[#00ffaa] shrink-0" /> */}
               <span className="text-yellow-800 mx-auto text-[13px] text-[#54635B] dark:text-[#8AA097] font-medium comic-text">
@@ -143,7 +144,7 @@ export const Dashboard = () => {
         {/* Card 3: Interviews */}
         
         <a href="/applications?stage=interview">
-          <div className="apple-card p-5 transition-colors !bg-violet-200 dark:!bg-[var(--bg-card)]">
+          <div className="apple-card p-5 transition-colors !bg-violet-200 dark:!bg-[var(--bg-card)] border !border-violet-400 dark:!border-[var(--separator)]">
             <div className="flex items-center gap-2">
               {/* <span className="w-2.5 h-2.5 rounded-full bg-[#958bff] shrink-0" /> */}
               <span className="text-violet-800 mx-auto text-[13px] text-[#54635B] dark:text-[#8AA097] font-medium comic-text">Interviews</span>
@@ -156,7 +157,7 @@ export const Dashboard = () => {
 
         {/* Card 4: Rejected */}
         <a href="/applications?stage=rejected">
-          <div className="apple-card p-5 transition-colors !bg-[#fecaca] dark:!bg-[var(--bg-card)]">
+          <div className="apple-card p-5 transition-colors !bg-[#fecaca] dark:!bg-[var(--bg-card)] border !border-red-400 dark:!border-[var(--separator)]">
             <div className="flex items-center gap-2">
               {/* <span className="w-2.5 h-2.5 rounded-full bg-[#b91610] shrink-0" /> */}
               <span className="text-red-800 mx-auto text-[13px]  dark:text-[#8AA097] font-medium comic-text ">Rejected</span>
@@ -170,7 +171,7 @@ export const Dashboard = () => {
         {/* Card 5: Selected (Offers) */}
         
         <a href="/applications?stage=selected">
-          <div className="apple-card p-5 transition-colors !bg-green-200 dark:!bg-[var(--bg-card)]">
+          <div className="apple-card p-5 transition-colors !bg-green-200 dark:!bg-[var(--bg-card)] border !border-green-600 dark:!border-[var(--separator)]">
             <div className="flex items-center gap-2">
               {/* <span className="w-2.5 h-2.5 rounded-full bg-[#30D158] shrink-0" /> */}
               <span className="text-green-800 mx-auto text-[13px] text-[#54635B] dark:text-[#8AA097] font-medium comic-text">

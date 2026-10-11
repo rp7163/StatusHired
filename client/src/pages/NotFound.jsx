@@ -14,17 +14,17 @@ export const NotFound = () => {
         Error 404
       </span>
 
-      <h1 className="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 dark:text-[#E8F5EE]">
+      <h1 className="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 dark:text-[#E8F5EE] cambria-text !text-[40px] pb-4">
         Page Not Found
       </h1>
 
-      <p className="mt-2 text-sm text-slate-500 dark:text-[#8AA097] max-w-md">
+      <p className="mt-2 !text-[17px] text-slate-500 dark:text-[#8AA097] max-w-md comic-text">
         The application page or route you requested doesn't exist or may have been moved.
       </p>
 
-      <div className="mt-6 flex items-center gap-3">
+      <div className="mt-6 flex items-center gap-3 cambria-text brightness-120 !text-black">
         <Link to="/">
-          <Button variant="primary" leftIcon={<Home className="w-4 h-4" />}>
+          <Button variant="primary" leftIcon={<Home className="w-4 h-4 text-black" />} className="!text-black !text-[17px]">
             Back to Dashboard
           </Button>
         </Link>
