@@ -190,8 +190,8 @@ export const Profile = () => {
             <div className="mt-7 flex flex-wrap justify-center lg:justify-start gap-3">
               {user?.portfolio_url && (
                 <a href={user.portfolio_url} target="_blank" rel="noopener noreferrer">
-                  <Button variant="primary" size="lg" leftIcon={<Globe className="w-4 h-4" />}>
-                    View portfolio
+                  <Button variant="primary" size="lg" leftIcon={<Globe className="w-4 h-4 text-black" />}>
+                    <span className='text-black'>View portfolio</span>
                   </Button>
                 </a>
               )}

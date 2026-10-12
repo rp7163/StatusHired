@@ -89,7 +89,7 @@ export const About = () => {
             <div className="mt-7 flex flex-wrap justify-center lg:justify-start gap-3">
               {a.portfolioUrl && (
                 <a href={a.portfolioUrl} target="_blank" rel="noopener noreferrer">
-                  <Button variant="primary" size="lg" leftIcon={<Globe className="w-4 h-4" />}>View my portfolio</Button>
+                  <Button variant="primary" size="lg" leftIcon={<Globe className="w-4 h-4 text-black" />}><span className='text-black'>View my portfolio</span></Button>
                 </a>
               )}
               {a.resumeUrl && (
@@ -115,7 +115,7 @@ export const About = () => {
 
           <div className="relative mx-auto">
             <div className="absolute inset-0 rounded-[32px] gradient-bg blur-2xl opacity-40 scale-105" />
-            <div className="relative p-[3px] rounded-[32px] gradient-bg shadow-[0_20px_60px_var(--accent-glow)]">
+            <div className="relative p-[3px] rounded-[32px] gradient-bg dark:shadow-[0_20px_60px_var(--accent-glow)]">
               <Avatar user={user} src={a.photo || undefined} size={220} rounded="rounded-[29px]" className="!border-0 bg-[var(--bg-elev)]" />
             </div>
           </div>

@@ -269,7 +269,7 @@ export const Header = ({ onOpenCommandPalette, onOpenSettings, onNewReminder }) 
           <div className="relative" ref={createRef}>
             <button
               onClick={() => setIsCreateOpen((v) => !v)}
-              className="h-[42px] px-3 rounded-[10px] gradient-bg text-white shadow-[0_8px_24px_var(--accent-glow)] hover:brightness-110 flex items-center gap-1 cursor-pointer transition"
+              className="h-[40px] px-3 !rounded-lg apple-card flex items-center gap-1 cursor-pointer transition-colors hover:!border-[#10B981]"
               aria-label="Create new"
               aria-haspopup="menu"
               aria-expanded={isCreateOpen}
@@ -287,7 +287,7 @@ export const Header = ({ onOpenCommandPalette, onOpenSettings, onNewReminder }) 
                   exit={{ opacity: 0, y: 8, scale: 0.96 }}
                   transition={{ duration: 0.15 }}
                   role="menu"
-                  className="absolute right-0 top-12 mt-2 w-60 rounded-[16px] apple-card shadow-[var(--shadow-lg)] p-2 z-50 text-left"
+                  className="absolute right-0 top-12 mt-2 w-60 rounded-[16px] apple-card p-2 z-50 text-left"
                 >
                   <p className="px-2.5 pt-1.5 pb-2 text-[11px] font-semibold uppercase tracking-wider text-[#8A9A92] dark:text-[#5C6F67]">Create new</p>
                   {CREATE_ITEMS.map((item) => (
@@ -297,7 +297,7 @@ export const Header = ({ onOpenCommandPalette, onOpenSettings, onNewReminder }) 
                       onClick={() => { setIsCreateOpen(false); item.action(); }}
                       className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-[10px] text-[14px] font-medium text-[#0C1A13] dark:text-[#E8F5EE] hover:bg-[var(--accent-soft)] transition-colors cursor-pointer"
                     >
-                      <span className="w-8 h-8 rounded-[8px] bg-[var(--accent-soft)] text-[#059669] dark:text-[#34D399] flex items-center justify-center shrink-0">
+                      <span className="w-8 h-8 rounded-[8px] bg-[var(--accent-soft)] text-[#021f16] dark:text-[#34D399] flex items-center justify-center shrink-0">
                         <item.icon className="w-4 h-4" strokeWidth={1.9} />
                       </span>
                       <span className="flex-1">{item.label}</span>
@@ -312,14 +312,14 @@ export const Header = ({ onOpenCommandPalette, onOpenSettings, onNewReminder }) 
           {/* Avatar menu */}
           <div className="relative" ref={userRef}>
             <button
-              onClick={() => setIsUserOpen((v) => !v)}
-              className="w-[42px] h-[42px] rounded-[10px] border border-[#E1EBE5] dark:border-[#1D2A23] hover:border-[#10B981] p-[3px] bg-[var(--bg-elev)] cursor-pointer transition-colors"
-              aria-label="Account menu"
-              aria-haspopup="menu"
-              aria-expanded={isUserOpen}
-            >
-              <Avatar user={user} size={34} rounded="rounded-[8px]" className="!border-0" />
-            </button>
+            onClick={() => setIsUserOpen((v) => !v)}
+            className="w-[42px] h-[42px] !rounded-full  cursor-pointer transition-colors flex items-center justify-center "
+            aria-label="Account menu"
+            aria-haspopup="menu"
+            aria-expanded={isUserOpen}
+          >
+            <Avatar user={user} size={40} rounded="rounded-xl" className="!border-2 cambria-text !bg-emrald-100/80 dark:!border-[var(--separator)] !text-black !text-[18px] !border !border-blue-200 brightness-125 hover:brightness-150 hover:!border-green-900 hover:!border-1"/>
+          </button>
 
             <AnimatePresence>
               {isUserOpen && (
@@ -329,12 +329,12 @@ export const Header = ({ onOpenCommandPalette, onOpenSettings, onNewReminder }) 
                   exit={{ opacity: 0, y: 8, scale: 0.96 }}
                   transition={{ duration: 0.15 }}
                   role="menu"
-                  className="absolute right-0 top-12 mt-2 w-64 rounded-[16px] apple-card shadow-[var(--shadow-lg)] p-2 z-50 text-left"
+                  className="absolute right-0 top-12 mt-2 w-64 rounded-[16px] apple-card p-2 z-50 text-left"
                 >
                   <div className="flex items-center gap-3 px-2.5 py-2.5 mb-1 border-b border-[#E1EBE5] dark:border-[#1D2A23]">
-                    <Avatar user={user} size={40} rounded="rounded-[10px]" />
-                    <div className="min-w-0">
-                      <p className="text-[14px] font-semibold text-[#0C1A13] dark:text-[#E8F5EE] truncate">
+                    <Avatar user={user} size={40} rounded="rounded-[10px] !text-[20px] cambria-text" />
+                    <div className="min-w-0 !cambria-text">
+                      <p className="text-[14px] font-semibold text-[#0C1A13] dark:text-[#E8F5EE] truncate ">
                         {displayName}
                       </p>
                       <p className="text-[12px] text-[#54635B] dark:text-[#8AA097] truncate">{user?.email}</p>
