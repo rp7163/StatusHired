@@ -60,8 +60,7 @@ export const Header = ({ onOpenCommandPalette, onOpenSettings, onNewReminder }) 
   const { openNewAppModal } = useSearch();
   const { user, signOut } = useAuth();
   const { reminders } = useJobTracker();
-  const { dueReminders, unreadNotificationCount, snoozeReminder, toggleReminder, markAllDueAsDone } =
-    useReminderEngine();
+  const { dueReminders, unreadNotificationCount, snoozeReminder, toggleReminder, markAllDueAsDone } = useReminderEngine();
 
   const pendingReminders = reminders.filter((r) => !r.is_done).length;
 
@@ -107,7 +106,7 @@ export const Header = ({ onOpenCommandPalette, onOpenSettings, onNewReminder }) 
             className="transition"
           />
 
-          <span className="hidden sm:inline-flex items-center h-9 px-3.5 rounded-xl gradient-bg text-black font-[Outfit] font-bold !text-[15px] tracking-tight shadow-[0_6px_18px_var(--accent-glow)] brightness-130 group-hover:brightness-150 transition cambria-text">
+          <span className="hidden sm:inline-flex items-center h-9 px-3.5 rounded-xl gradient-bg text-white dark:!text-black font-[Outfit] font-bold !text-[15px] tracking-tight shadow-[0_6px_18px_var(--accent-glow)] brightness-100 group-hover:brightness-150 transition cambria-text">
             StatusHired
           </span>
         </Link>
@@ -332,7 +331,7 @@ export const Header = ({ onOpenCommandPalette, onOpenSettings, onNewReminder }) 
                   className="absolute right-0 top-12 mt-2 w-64 rounded-[16px] apple-card p-2 z-50 text-left"
                 >
                   <div className="flex items-center gap-3 px-2.5 py-2.5 mb-1 border-b border-[#E1EBE5] dark:border-[#1D2A23]">
-                    <Avatar user={user} size={40} rounded="rounded-[10px] !text-[20px] cambria-text" />
+                    <Avatar user={user} size={40} rounded="rounded-[10px] !text-[20px] cambria-text dark:!text-black" />
                     <div className="min-w-0 !cambria-text">
                       <p className="text-[14px] font-semibold text-[#0C1A13] dark:text-[#E8F5EE] truncate ">
                         {displayName}

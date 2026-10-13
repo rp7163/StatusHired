@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useDocumentTitle } from '../hooks/useDocumentTitle.js';
+import { Footer } from '../components/layout/Footer.jsx';
 import {
   Eye,
   EyeOff,
@@ -192,7 +193,7 @@ export const Login = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#F7FBF8] dark:bg-[#060A08] text-[#0C1A13] dark:text-[#E8F5EE] flex flex-col justify-center items-center px-4 py-12 transition-colors">
+    <div className="min-h-screen bg-[#F7FBF8] dark:bg-[#060A08] text-[#0C1A13] dark:text-[#E8F5EE] flex flex-col justify-center items-center px-4 py-12 transition-colors !overflow-y-hidden">
       <div className="w-full max-w-[420px] flex flex-col items-center">
         {/* Top App Branding */}
         <div className="flex flex-col items-center text-center mb-7">
@@ -213,11 +214,11 @@ export const Login = () => {
             <div className="flex items-center gap-2">
               <span
                 className={`w-2.5 h-2.5 rounded-full ${
-                  isConfigured ? 'bg-[#30D158] animate-pulse' : 'bg-[#FF9F0A]'
+                  isConfigured ? 'bg-[#10f348] animate-pulse w-3 h-3' : 'bg-red-500 animate-plus w-3 h-3'
                 }`}
               />
 
-              <span className="text-[13px] font-semibold text-[#0C1A13] dark:text-[#E8F5EE]">
+              <span className="text-[15px] font-semibold text-[#0C1A13] dark:text-[#E8F5EE]">
                 {isConfigured ? 'Ready to use' : 'Please wait 1 minute before signing up'}
               </span>
             </div>
@@ -453,16 +454,17 @@ export const Login = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="mx-auto px-4 w-fit h-[44px] rounded-full bg-[#10B981] hover:bg-[#059669] disabled:opacity-50 text-white text-[15px] font-medium transition-all active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer shadow-xs mt-2"
+                className="mx-auto px-4  h-[40px] rounded-2xl bg-[#10B981] hover:bg-[#059669] disabled:opacity-50 text-white text-[15px] font-medium transition-all active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer shadow-xs mt-2"
               >
                 {isLoading ? (
-                  <Loader2 className="w-4 h-4 animate-spin" />
+                  <Loader2 className="w-4 h-4 animate-spin !min-w-10" />
                 ) : mode === 'signin' ? (
                   'Sign in'
                 ) : (
                   'Send Verification Code'
                 )}
               </button>
+              
             </form>
           )}
         </div>
@@ -491,6 +493,14 @@ export const Login = () => {
       />
 
       <DatabaseSetupModal isOpen={isDbSetupModalOpen} onClose={() => setIsDbSetupModalOpen(false)} />
+      {/* <Footer className=" w-full !mt-3 border-none bg-inherit" /> */}
+      <Footer
+        copyrightText="Designed and developed by"
+        authorName="Rudra Patel"
+        content="If you are unable to sign in, contact "
+        feedbackEmail = '23bcp401@sot.pdpu.ac.in'
+        className="w-full !mt-3 border-none bg-inherit"
+      />
     </div>
   );
 };

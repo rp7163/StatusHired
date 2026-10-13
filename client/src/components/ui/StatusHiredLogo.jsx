@@ -84,7 +84,7 @@ export const StatusHiredLogo = ({ className = '', size = 32, variant = 'mark', s
       {/* Inner career progression tiers (3 subtle horizontal bars representing application pipeline) */}
       <path d="M13 18H20.5" stroke="#FFFFFF" strokeWidth="2.2" strokeLinecap="round" strokeOpacity="0.4" />
 
-      <path d="M13 24H23" stroke="#FFFFFF" strokeWidth="2.2" strokeLinecap="round" strokeOpacity="0.6" />
+      <path d="M13 24H23" stroke="#FFFFFF" strokeWidth="2.2" strokeLinecap="round" strokeOpacity="1" />
 
       <path d="M13 30H20" stroke="#FFFFFF" strokeWidth="2.2" strokeLinecap="round" strokeOpacity="0.4" />
 
