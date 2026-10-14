@@ -7,3 +7,4 @@ server/uploads/
 *.log
 .DS_Store
 tests/screenshots/
+Git-push.bat

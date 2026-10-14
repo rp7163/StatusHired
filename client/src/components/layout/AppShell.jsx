@@ -122,8 +122,7 @@ export const AppShell = () => {
       />
 
       {/* Main Content Area (offset by the 76px header) */}
-      <main className="flex-1 w-full max-w-[1240px] mx-auto px-4 sm:px-6 pt-[100px] pb-24 md:pb-10 !pb-0 !-mb-4"> 
-      {/* On above line I added !pb-0 !-mb-4 just to adjust 404 page look, if brake other pages then remove*/}
+      <main className="flex-1 w-full max-w-[1240px] mx-auto px-4 sm:px-6 pt-[92px] sm:pt-[100px] pb-8 md:pb-10">
         <ErrorBoundary>
           <AnimatePresence mode="wait">
             <motion.div
@@ -140,7 +139,7 @@ export const AppShell = () => {
         </ErrorBoundary>
       </main>
 
-      <Footer />
+      <Footer className="mb-16 md:mb-0" />
 
       {/* Mobile Bottom Navigation */}
       <MobileNav />

@@ -15,18 +15,18 @@ export const Footer = ({
   const year = new Date().getFullYear();
 
   return (
-    <footer className={`mt-16 border-t border-[#5b40b3] dark:border-[#1f6d43] bg-[var(--bg-elev)] ${className}`}>
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 pt-4 pb-4 text-center">
-        <p className="text-[14px] text-[#54635B] dark:text-[#8AA097]">
+    <footer className={`mt-10 sm:mt-16 border-t border-[#5b40b3] dark:border-[#1f6d43] bg-[var(--bg-elev)] ${className}`}>
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 py-4 text-center space-y-1">
+        <p className="text-[13px] sm:text-[14px] text-[#54635B] dark:text-[#8AA097] leading-relaxed">
           © {year} {copyrightText}{' '}
-          <span className="text-black dark:text-teal-100">{name}</span>
+          <span className="text-black dark:text-teal-100 font-medium">{name}</span>
         </p>
 
-        <p className="text-[14px] text-[#54635B] dark:text-[#8AA097]">
+        <p className="text-[12.5px] sm:text-[14px] text-[#54635B] dark:text-[#8AA097] leading-relaxed break-words">
           {content}
           <a
             href={`mailto:${feedbackEmail}`}
-            className="text-black dark:text-teal-300"
+            className="text-black dark:text-teal-300 font-medium underline-offset-2 hover:underline inline-block"
           >
             {feedbackEmail}
           </a>

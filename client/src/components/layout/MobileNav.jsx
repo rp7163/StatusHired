@@ -20,18 +20,18 @@ export const MobileNav = () => {
   return (
     <>
       {/* Floating Action Button for "+ New" on mobile */}
-      <div className="md:hidden fixed bottom-20 right-5 z-40">
+      <div className="md:hidden fixed bottom-20 right-4 z-40">
         <button
           onClick={() => openNewAppModal('saved')}
-          className="w-14 h-14 rounded-full gradient-bg text-white shadow-[0_8px_24px_var(--accent-glow)] flex items-center justify-center active:scale-95 transition-transform"
+          className="w-12 h-12 rounded-full gradient-bg text-white shadow-[0_8px_24px_var(--accent-glow)] flex items-center justify-center active:scale-95 transition-transform"
           aria-label="Create New Application"
         >
-          <Plus className="w-6 h-6" strokeWidth={2.5} />
+          <Plus className="w-5 h-5" strokeWidth={2.5} />
         </button>
       </div>
 
       {/* Bottom Tab Bar */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-30 h-16 frosted-topbar flex items-center justify-around px-2 pb-safe">
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-30 h-16 bg-[var(--bg-elev)]/95 backdrop-blur-xl border-t border-[#E1EBE5] dark:border-[#1D2A23] shadow-[0_-4px_16px_rgba(0,0,0,0.06)] flex items-center justify-around px-1">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           return (
