@@ -262,10 +262,13 @@ export const Applications = () => {
                   >
                     <option value="all">All Sources</option>
                     <option value="LinkedIn">LinkedIn</option>
+                    <option value="on-campus">On campus</option>
                     <option value="Referral">Referral</option>
                     <option value="Company site">Company site</option>
                     <option value="Indeed">Indeed</option>
                     <option value="Wellfound">Wellfound</option>
+                    <option value="TheJobCompany">TheJobCompany</option>
+                    <option value="mail">Cold E-mail</option>
                     <option value="Other">Other</option>
                   </select>
                 </div>

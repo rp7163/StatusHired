@@ -372,10 +372,13 @@ export const ApplicationModal = ({ isOpen, onClose, applicationToEdit, defaultSt
                           className="w-full h-10 px-3 rounded-[14px] bg-[#F7FBF8] dark:bg-[#142019] text-[14px] text-[#0C1A13] dark:text-[#E8F5EE] outline-none"
                         >
                           <option value="LinkedIn">LinkedIn</option>
+                          <option value="on-campus">On campus</option>
                           <option value="Referral">Referral</option>
                           <option value="Company site">Company site</option>
                           <option value="Indeed">Indeed</option>
                           <option value="Wellfound">Wellfound</option>
+                          <option value="TheJobCompany">TheJobCompany</option>
+                          <option value="mail">Cold E-mail</option>
                           <option value="Other">Other</option>
                         </select>
                       </div>
