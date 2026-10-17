@@ -1,3 +1,11 @@
 User-agent: *
 Allow: /
+Disallow: /dashboard
+Disallow: /applications
+Disallow: /board
+Disallow: /resumes
+Disallow: /reminders
+Disallow: /profile
+Disallow: /api/
+
 Sitemap: https://status-hired.vercel.app/sitemap.xml

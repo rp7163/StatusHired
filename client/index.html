@@ -1,23 +1,133 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta name="google-site-verification" content="Jw-rNDSudB397YwBQknUdB6XJse6o_SyIbVIA-gZwRI" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>StatusHired - Career Tracker & Application Manager</title>
-    <meta name="description" content="StatusHired: Modern career pipeline, stage progression, and job application tracker with MongoDB data storage, resume management, and reminders." />
-    <meta property="og:title" content="StatusHired - Career Pipeline & Application Manager" />
-    <meta property="og:description" content="StatusHired: Modern career pipeline, stage progression, and job application tracker with MongoDB data storage, resume management, and reminders." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2334D399'/%3E%3Cstop offset='60%25' stop-color='%2310B981'/%3E%3Cstop offset='100%25' stop-color='%2314B8A6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='9' fill='url(%23g)'/%3E%3Cpath d='M8 12h5M8 16h7M8 20h5' stroke='white' stroke-width='2' stroke-linecap='round' stroke-opacity='0.45'/%3E%3Cpath d='M13 19l4 4 8-11' stroke='white' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='25' cy='12' r='2' fill='%2330D158'/%3E%3C/svg%3E" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  </head>
-  <body class="font-sans antialiased transition-colors duration-200">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
 
+<head>
+  <!-- Google Search Console Verification -->
+  <meta name="google-site-verification" content="Jw-rNDSudB397YwBQknUdB6XJse6o_SyIbVIA-gZwRI" />
+
+  <!-- Standard Meta & Viewport -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Primary SEO Metadata -->
+  <title>StatusHired - Job Application Tracker &amp; Career Pipeline Manager</title>
+  <meta name="title" content="StatusHired - Job Application Tracker &amp; Career Pipeline Manager" />
+  <meta name="description"
+    content="StatusHired is a free, modern job application tracker that helps job seekers organize applications, monitor interview stages, track resumes, and manage follow-up reminders in one calm workspace." />
+  <meta name="keywords"
+    content="job application tracker, job search organizer, career pipeline manager, job hunt tracker, interview tracker, resume manager, application kanban board" />
+  <meta name="author" content="StatusHired" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="theme-color" content="#10B981" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://status-hired.vercel.app/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://status-hired.vercel.app/" />
+  <meta property="og:site_name" content="StatusHired" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="StatusHired - Job Application Tracker &amp; Career Pipeline Manager" />
+  <meta property="og:description"
+    content="StatusHired helps job seekers organize applications, monitor interview progression on visual boards, track resumes, and set follow-up reminders." />
+  <meta property="og:image" content="https://status-hired.vercel.app/og-image.png" />
+  <meta property="og:image:secure_url" content="https://status-hired.vercel.app/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="StatusHired Job Application Tracker and Career Pipeline Manager preview" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://status-hired.vercel.app/" />
+  <meta name="twitter:title" content="StatusHired - Job Application Tracker &amp; Career Pipeline Manager" />
+  <meta name="twitter:description"
+    content="Organize every job application in one calm workspace. Track stages on visual Kanban boards, manage resumes, and schedule interview reminders." />
+  <meta name="twitter:image" content="https://status-hired.vercel.app/og-image.png" />
+  <meta name="twitter:image:alt" content="StatusHired Job Application Tracker and Career Pipeline Manager" />
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2334D399'/%3E%3Cstop offset='60%25' stop-color='%2310B981'/%3E%3Cstop offset='100%25' stop-color='%2314B8A6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='9' fill='url(%23g)'/%3E%3Cpath d='M8 12h5M8 16h7M8 20h5' stroke='white' stroke-width='2' stroke-linecap='round' stroke-opacity='0.45'/%3E%3Cpath d='M13 19l4 4 8-11' stroke='white' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='25' cy='12' r='2' fill='%2330D158'/%3E%3C/svg%3E" />
+
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+
+  <!-- JSON-LD Structured Data: WebSite & WebApplication -->
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://status-hired.vercel.app/#website",
+            "url": "https://status-hired.vercel.app/",
+            "name": "StatusHired",
+            "description": "Job application tracking web application helping job seekers organize applications, track interview stages, and manage career pipelines.",
+            "inLanguage": "en-US"
+          },
+          {
+            "@type": "WebApplication",
+            "@id": "https://status-hired.vercel.app/#webapp",
+            "name": "StatusHired",
+            "url": "https://status-hired.vercel.app/",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "All",
+            "browserRequirements": "Requires JavaScript. Requires HTML5.",
+            "description": "StatusHired is a full-featured job application tracking web application. It enables job seekers to record job applications, advance through interview stages on visual Kanban boards, manage tailored resumes, and schedule reminder notifications.",
+            "image": "https://status-hired.vercel.app/og-image.png",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "featureList": [
+              "Visual Kanban application board",
+              "Customizable interview and offer stage progression",
+              "Resume document management and previews",
+              "Interview and follow-up deadline reminders",
+              "Secure authentication with email verification",
+              "Responsive dark and light themes"
+            ]
+          }
+        ]
+      }
+    </script>
+</head>
+
+<body class="font-sans antialiased transition-colors duration-200">
+  <!-- Noscript Fallback for SEO Crawlers & Non-JS Browsers -->
+  <noscript>
+    <div
+      style="font-family: system-ui, sans-serif; max-width: 720px; margin: 40px auto; padding: 24px; line-height: 1.6; color: #0C1A13; background: #F7FBF8; border-radius: 12px; border: 1px solid #D1E5DB;">
+      <h1 style="color: #065F46; font-size: 28px; margin-bottom: 8px;">StatusHired - Job Application Tracker</h1>
+      <p style="font-size: 16px; color: #374151;">
+        StatusHired is a job search tracking tool built to help job seekers organize job applications, monitor interview
+        progression, manage resumes, and schedule follow-up reminders.
+      </p>
+      <h2 style="font-size: 18px; margin-top: 20px; color: #065F46;">Key Features</h2>
+      <ul style="color: #4B5563; padding-left: 20px;">
+        <li>Visual Kanban board with custom hiring pipeline stages (Wishlist, Applied, Interviewing, Offer, Rejected)
+        </li>
+        <li>Real-time stage tracking and application history</li>
+        <li>Resume document storage and quick preview</li>
+        <li>Due date reminders for interviews and follow-up emails</li>
+        <li>Secure account access with one-time verification</li>
+      </ul>
+      <p style="margin-top: 16px; font-size: 14px; color: #6B7280;">
+        Please enable JavaScript in your browser to use the interactive StatusHired application.
+      </p>
+    </div>
+  </noscript>
+
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>

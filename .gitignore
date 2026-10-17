@@ -6,5 +6,6 @@ build/
 server/uploads/
 *.log
 .DS_Store
-tests/screenshots/
+tests/
 Git-push.bat
+start-windows.bat 

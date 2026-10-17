@@ -24,7 +24,12 @@ import { BiometricEnrollmentModal } from '../components/BiometricEnrollmentModal
 import { isPlatformBiometricsAvailable, getBiometricEnrollment } from '../lib/biometrics.js';
 
 export const Login = () => {
-  useDocumentTitle('Sign In');
+  useDocumentTitle({
+    title: 'Sign In · StatusHired',
+    description: 'Sign in to StatusHired to track job applications, manage resumes, and organize interview stages in your career pipeline.',
+    canonicalPath: '/login',
+    robots: 'index, follow',
+  });
   const { user, isConfigured, signInWithEmail, signUpWithEmail, verifyOtp, resendVerificationOtp } =
     useAuth();
 

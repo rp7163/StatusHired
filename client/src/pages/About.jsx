@@ -56,7 +56,12 @@ const fade = (i = 0) => ({
 });
 
 export const About = () => {
-  useDocumentTitle('About');
+  useDocumentTitle({
+    title: 'About · StatusHired',
+    description: 'Learn more about StatusHired, the developer, and the engineering behind this job application tracker and career pipeline manager.',
+    canonicalPath: '/about',
+    robots: 'index, follow',
+  });
   const { user } = useAuth();
   const a = about;
 

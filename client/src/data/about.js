@@ -22,14 +22,9 @@ export const about = {
   email: '23bcp401@sot.pdpu.ac.in',
   phone: '+91 7573092630',
   status: 'Open to opportunities',
-  photo: './rudra.png', // e.g. '/me.jpg' (put the file in client/public). Empty = use your profile photo / default avatar.
-
-  // Buttons in the hero
-  resumeUrl: 'https://drive.google.com/file/d/1zv_GIW5gmhUjGaK1VjyCZuLHy80dT-Tp/view',
+  photo: './rudra.jpg',
+  resumeUrl: 'https://patelrudra.vercel.app/Resume.pdf',
   portfolioUrl: 'https://patelrudra.vercel.app',
-
-  // Social icons (label is used as tooltip). Supported icons: github, linkedin, twitter,
-  // globe, mail, phone, leetcode, codeforces, codechef, link
   socials: [
     { label: 'GitHub', url: 'https://github.com/rp7163', icon: 'github' },
     { label: 'LinkedIn', url: 'https://www.linkedin.com/in/rudra-patel-pdeu/', icon: 'linkedin' },
@@ -103,7 +98,7 @@ export const about = {
       description: 'A full-stack web app to keep track of job applications in one place. Users can add every job they apply to, move it across stages like Applied, Interview and Offer on a drag-and-drop board, upload and preview their resumes, and set reminders for interviews and follow-ups. It has secure login with email verification, a personal profile page, and all data is saved per user in MongoDB. Built with the MERN stack and deployed live.',
       tech: ['React', 'Vite', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB', 'Socket.io', 'JWT'],
       liveURL: 'https://status-hired.vercel.app/',
-      url:'https://github.com/rp7163/StatusHired'
+      url: 'https://github.com/rp7163/StatusHired'
     },
   ],
 

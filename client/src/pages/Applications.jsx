@@ -24,7 +24,10 @@ const STAGE_OPTIONS = [
 ];
 
 export const Applications = () => {
-  useDocumentTitle('Applications');
+  useDocumentTitle({
+    title: 'Applications',
+    robots: 'noindex, nofollow',
+  });
 
   const { applications, isLoading, createApplication, updateApplication, deleteApplication, moveStage } =
     useApplications();

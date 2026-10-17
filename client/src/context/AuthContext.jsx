@@ -47,6 +47,12 @@ export const AuthProvider = ({ children }) => {
         if (cancelled) return;
         setIsConfigured(false);
         setServerStatus({ checked: true, db: 'unreachable', email: 'unknown' });
+        // Automatically retry after 5 seconds if asleep / cold starting
+        setTimeout(() => {
+          if (!cancelled && !isConfigured) {
+            checkHealth();
+          }
+        }, 5000);
       }
     };
 

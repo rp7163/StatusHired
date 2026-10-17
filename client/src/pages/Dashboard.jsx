@@ -16,7 +16,10 @@ import { ReminderModal } from '../components/ReminderModal.jsx';
 import { ApplicationModal } from '../components/ApplicationModal.jsx';
 
 export const Dashboard = () => {
-  useDocumentTitle('Dashboard');
+  useDocumentTitle({
+    title: 'Dashboard',
+    robots: 'noindex, nofollow',
+  });
 
   const { applications, moveStage, deleteApplication } = useApplications();
   const { reminders, toggleReminder } = useReminderEngine();
