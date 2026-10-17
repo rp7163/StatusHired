@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="sh-bg-grad" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#34D399" />
+      <stop offset="60%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#14B8A6" />
+    </linearGradient>
+    <linearGradient id="sh-glass-sheen" x1="12" y1="4" x2="36" y2="28" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.32" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="sh-check-stroke" x1="13" y1="33" x2="36" y2="15" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="60%" stop-color="#F5F8FF" />
+      <stop offset="100%" stop-color="#30D158" />
+    </linearGradient>
+    <radialGradient id="sh-beacon-glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(36 14) rotate(90) scale(7)">
+      <stop offset="0%" stop-color="#30D158" />
+      <stop offset="100%" stop-color="#30D158" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background squircle -->
+  <rect x="4" y="4" width="40" height="40" rx="12" fill="url(#sh-bg-grad)" />
+
+  <!-- Glass sheen highlight -->
+  <rect x="4" y="4" width="40" height="20" rx="12" fill="url(#sh-glass-sheen)" />
+
+  <!-- Career pipeline subtle rung indicators -->
+  <path d="M12 18H20M12 24H22M12 30H19" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.45" />
+
+  <!-- Ascending Checkmark Path -->
+  <path d="M19 28L25 34L37 16" stroke="url(#sh-check-stroke)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Offer Status Beacon / Light Glow -->
+  <circle cx="36" cy="14" r="5" fill="url(#sh-beacon-glow)" />
+  <circle cx="36" cy="14" r="2.2" fill="#FFFFFF" />
+</svg>

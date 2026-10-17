@@ -4,7 +4,7 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/((?!api/|assets/|robots\\.txt|sitemap\\.xml|og-image\\.png|rudra-optimized\\.jpg|rudra\\.png).*)", "destination": "/index.html" }
+    { "source": "/((?!api/|assets/|robots\\.txt|sitemap\\.xml|favicon\\.svg|og-image\\.png|rudra-optimized\\.jpg|rudra\\.png).*)", "destination": "/index.html" }
   ],
   "headers": [
     {
@@ -16,7 +16,7 @@
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" }]
     },
     {
-      "source": "/(og-image\\.png|rudra-optimized\\.jpg)",
+      "source": "/(favicon\\.svg|og-image\\.png|rudra-optimized\\.jpg)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }]
     }
   ]

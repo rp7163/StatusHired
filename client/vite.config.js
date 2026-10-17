@@ -14,6 +14,18 @@ export default defineConfig(() => {
     plugins: [react(), tailwindcss()],
     optimizeDeps: { include: ['recharts', 'react-is'] },
     resolve: { alias: { '@': path.resolve(__dirname, '.') } },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+            'vendor-motion': ['framer-motion'],
+            'vendor-charts': ['recharts'],
+            'vendor-dnd': ['@dnd-kit/core', '@dnd-kit/sortable', '@dnd-kit/utilities'],
+          },
+        },
+      },
+    },
     server: {
       host: '0.0.0.0',
       port: 3000,
