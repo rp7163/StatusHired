@@ -180,7 +180,7 @@ export const Board = () => {
 
   return (
     <div className="space-y-6">
-      <PageHeader eyebrow="Pipeline" title="Kanban board" description="Drag applications between stages as your process moves forward." />
+      <PageHeader eyebrow="Pipeline" title="Application board" description="Drag applications between stages as your process moves forward." />
       {/* Top Search Bar */}
       <div className="flex items-center justify-between gap-4">
         <div className="relative w-full max-w-md">

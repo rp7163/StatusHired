@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState, useEffect, useCallback } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+
 import { Header } from './Header.jsx';
 import { Footer } from './Footer.jsx';
 import { MobileNav } from './MobileNav.jsx';
@@ -11,117 +13,234 @@ import { CommandPalette } from '../CommandPalette.jsx';
 import { ShortcutsHelpModal } from '../ShortcutsHelpModal.jsx';
 import { ApplicationDrawer } from '../ApplicationDrawer.jsx';
 import { ErrorBoundary } from '../ErrorBoundary.jsx';
+
 import { useSearch } from '../../context/SearchContext.jsx';
 import { useApplications } from '../../hooks/useApplications.js';
+import { useTheme } from '../../context/ThemeContext.jsx';
 
 export const AppShell = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { isNewAppModalOpen, setIsNewAppModalOpen, defaultNewAppStage, openNewAppModal } = useSearch();
+  const { toggleTheme } = useTheme();
+
+  const {
+    isNewAppModalOpen,
+    setIsNewAppModalOpen,
+    defaultNewAppStage,
+    openNewAppModal,
+  } = useSearch();
+
   const { moveStage, deleteApplication } = useApplications();
 
-  // Modals state
+  // Modal states
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
-  const [isShortcutsHelpOpen, setIsShortcutsHelpOpen] = useState(false);
   const [isGlobalReminderOpen, setIsGlobalReminderOpen] = useState(false);
+  const [isShortcutsHelpOpen, setIsShortcutsHelpOpen] = useState(false);
   const [selectedDrawerApp, setSelectedDrawerApp] = useState(null);
   const [editingDrawerApp, setEditingDrawerApp] = useState(null);
 
-  // Global Keyboard Shortcuts
-  useEffect(() => {
-    let lastKey = '';
-    let lastKeyTimeout = null;
+  // Run a shortcut, whether triggered by the keyboard or clicked in the help modal.
+  const runShortcut = useCallback(
+    (shortcut) => {
+      switch (shortcut) {
+        case 'help':
+          setIsShortcutsHelpOpen(true);
+          break;
 
+        case 'theme':
+          toggleTheme();
+          break;
+
+        case 'new-application':
+          openNewAppModal('saved');
+          break;
+
+        case 'new-reminder':
+          setIsGlobalReminderOpen(true);
+          break;
+
+        case 'upload-resume': {
+          // Navigate to Resumes first if the upload button isn't on this page.
+          const uploadButton = document.querySelector(
+            '[data-shortcut="upload-resume"]'
+          );
+
+          if (uploadButton) {
+            uploadButton.click();
+          } else {
+            navigate('/resumes');
+          }
+          break;
+        }
+
+        case 'command-palette':
+          setIsCommandPaletteOpen((prev) => !prev);
+          break;
+
+        case 'dashboard':
+          navigate('/');
+          break;
+
+        case 'applications':
+          navigate('/applications');
+          break;
+
+        case 'board':
+          navigate('/board');
+          break;
+
+        case 'resumes':
+          navigate('/resumes');
+          break;
+
+        case 'reminders':
+          navigate('/reminders');
+          break;
+
+        case 'profile':
+          navigate('/profile');
+          break;
+
+        case 'about':
+          navigate('/about');
+          break;
+
+        default:
+          break;
+      }
+    },
+    [navigate, toggleTheme, openNewAppModal]
+  );
+
+  // Global keyboard shortcuts
+  useEffect(() => {
     const handleKeyDown = (e) => {
-      // 1. Command Palette: Cmd/Ctrl + K
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      const key = e.key.toLowerCase();
+      const target = e.target;
+      const tag = target?.tagName?.toLowerCase();
+
+      const isInput =
+        tag === 'input' ||
+        tag === 'textarea' ||
+        tag === 'select' ||
+        target?.isContentEditable;
+
+      // Shift + ?: Open help, even when focus is in an input.
+      if (e.shiftKey && e.key === '?') {
         e.preventDefault();
-        setIsCommandPaletteOpen((prev) => !prev);
+        runShortcut('help');
         return;
       }
 
-      // Check if user is typing in an input or textarea
-      const target = e.target;
-      const isInput =
-        target.tagName === 'INPUT' ||
-        target.tagName === 'TEXTAREA' ||
-        target.tagName === 'SELECT' ||
-        target.isContentEditable;
+      // Ctrl/Cmd + K: Command Palette
+      if ((e.ctrlKey || e.metaKey) && key === 'k') {
+        e.preventDefault();
+        runShortcut('command-palette');
+        return;
+      }
 
+      // Do not trigger other shortcuts while typing.
       if (isInput) return;
 
-      // 2. Help modal: ?
-      if (e.key === '?') {
+      // Shift + T: Toggle theme
+      if (
+        e.shiftKey &&
+        key === 't' &&
+        !e.ctrlKey &&
+        !e.altKey &&
+        !e.metaKey
+      ) {
         e.preventDefault();
-        setIsShortcutsHelpOpen(true);
+        runShortcut('theme');
         return;
       }
 
-      // 3. New Application: N
-      if (e.key.toLowerCase() === 'n' && !e.metaKey && !e.ctrlKey) {
+      // Ignore other modified key combinations here.
+      if (e.ctrlKey || e.altKey || e.metaKey || e.shiftKey) return;
+
+      // N: New application
+      if (key === 'n') {
         e.preventDefault();
-        openNewAppModal('saved');
+        runShortcut('new-application');
         return;
       }
 
-      // 4. New Reminder: R
-      if (e.key.toLowerCase() === 'r' && !e.metaKey && !e.ctrlKey) {
+      // R: New reminder
+      if (key === 'r') {
         e.preventDefault();
-        setIsGlobalReminderOpen(true);
+        runShortcut('new-reminder');
         return;
       }
 
-      // 5. Sequence: G then B, G then A, G then D, G then R, G then M
-      const key = e.key.toLowerCase();
-      if (lastKey === 'g') {
-        if (key === 'b') {
-          e.preventDefault();
-          navigate('/board');
-        } else if (key === 'a') {
-          e.preventDefault();
-          navigate('/applications');
-        } else if (key === 'd') {
-          e.preventDefault();
-          navigate('/');
-        } else if (key === 'r') {
-          e.preventDefault();
-          navigate('/resumes');
-        } else if (key === 'm') {
-          e.preventDefault();
-          navigate('/reminders');
-        } else if (key === 'p') {
-          e.preventDefault();
-          navigate('/profile');
-        }
-        lastKey = '';
-        if (lastKeyTimeout) clearTimeout(lastKeyTimeout);
-      } else if (key === 'g') {
-        lastKey = 'g';
-        if (lastKeyTimeout) clearTimeout(lastKeyTimeout);
-        lastKeyTimeout = setTimeout(() => {
-          lastKey = '';
-        }, 1000);
+      // U: Resume upload
+      if (key === 'u') {
+        e.preventDefault();
+        runShortcut('upload-resume');
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      if (lastKeyTimeout) clearTimeout(lastKeyTimeout);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [runShortcut]);
+
+  // Ctrl/Cmd + navigation shortcuts
+  useEffect(() => {
+    const handleNavigation = (e) => {
+      if (
+        !(e.ctrlKey || e.metaKey) ||
+        e.shiftKey ||
+        e.altKey
+      ) {
+        return;
+      }
+
+      const target = e.target;
+      const tag = target?.tagName?.toLowerCase();
+
+      if (
+        tag === 'input' ||
+        tag === 'textarea' ||
+        tag === 'select' ||
+        target?.isContentEditable
+      ) {
+        return;
+      }
+
+      const key = e.key.toLowerCase();
+
+      const routes = {
+        b: 'board',
+        a: 'applications',
+        d: 'dashboard',
+        m: 'reminders',
+        p: 'profile',
+      };
+
+      if (key === '.' || e.code === 'Period') {
+        e.preventDefault();
+        runShortcut('about');
+        return;
+      }
+
+      if (routes[key]) {
+        e.preventDefault();
+        runShortcut(routes[key]);
+      }
     };
-  }, [navigate, openNewAppModal]);
+
+    window.addEventListener('keydown', handleNavigation);
+    return () => window.removeEventListener('keydown', handleNavigation);
+  }, [runShortcut]);
 
   return (
     <div className="min-h-screen text-[#0C1A13] dark:text-[#E8F5EE] transition-colors flex flex-col">
-      {/* Fixed glass header with top navigation */}
       <Header
         onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
         onOpenSettings={() => setIsSettingsOpen(true)}
         onNewReminder={() => setIsGlobalReminderOpen(true)}
       />
 
-      {/* Main Content Area (offset by the 76px header) */}
       <main className="flex-1 w-full max-w-[1240px] mx-auto px-4 sm:px-6 pt-[92px] sm:pt-[100px] pb-8 md:pb-10">
         <ErrorBoundary>
           <AnimatePresence mode="wait">
@@ -140,32 +259,30 @@ export const AppShell = () => {
       </main>
 
       <Footer className="mb-16 md:mb-0" />
-
-      {/* Mobile Bottom Navigation */}
       <MobileNav />
 
-      {/* Global Modals */}
       <ApplicationModal
         isOpen={isNewAppModalOpen}
         onClose={() => setIsNewAppModalOpen(false)}
         defaultStage={defaultNewAppStage}
       />
 
-      <ReminderModal isOpen={isGlobalReminderOpen} onClose={() => setIsGlobalReminderOpen(false)} />
+      <ReminderModal
+        isOpen={isGlobalReminderOpen}
+        onClose={() => setIsGlobalReminderOpen(false)}
+      />
 
-      <SettingsModal isOpen={isSettingsOpen} onClose={() => setIsSettingsOpen(false)} />
+      <SettingsModal
+        isOpen={isSettingsOpen}
+        onClose={() => setIsSettingsOpen(false)}
+      />
 
-      {/* Command Palette */}
       <CommandPalette
         isOpen={isCommandPaletteOpen}
         onClose={() => setIsCommandPaletteOpen(false)}
         onSelectApplication={(app) => setSelectedDrawerApp(app)}
       />
 
-      {/* Keyboard Shortcuts Help Modal */}
-      <ShortcutsHelpModal isOpen={isShortcutsHelpOpen} onClose={() => setIsShortcutsHelpOpen(false)} />
-
-      {/* Detail Drawer when an app is selected from Command Palette */}
       <ApplicationDrawer
         application={selectedDrawerApp}
         isOpen={Boolean(selectedDrawerApp)}
@@ -178,18 +295,19 @@ export const AppShell = () => {
           await deleteApplication(app.id);
           setSelectedDrawerApp(null);
         }}
-        onAddReminder={() => {
-          setIsGlobalReminderOpen(true);
-        }}
+        onAddReminder={() => setIsGlobalReminderOpen(true)}
         onStageChange={async (id, newStage) => {
           await moveStage(id, newStage);
+
           if (selectedDrawerApp) {
-            setSelectedDrawerApp({ ...selectedDrawerApp, stage: newStage });
+            setSelectedDrawerApp({
+              ...selectedDrawerApp,
+              stage: newStage,
+            });
           }
         }}
       />
 
-      {/* Editing modal for Drawer */}
       {editingDrawerApp && (
         <ApplicationModal
           isOpen={Boolean(editingDrawerApp)}
@@ -197,6 +315,15 @@ export const AppShell = () => {
           applicationToEdit={editingDrawerApp}
         />
       )}
+
+      <ShortcutsHelpModal
+        isOpen={isShortcutsHelpOpen}
+        onClose={() => setIsShortcutsHelpOpen(false)}
+        onRunShortcut={(shortcut) => {
+          setIsShortcutsHelpOpen(false);
+          runShortcut(shortcut);
+        }}
+      />
     </div>
   );
 };

@@ -23,7 +23,7 @@ export async function seedDemo() {
     full_name: 'Rudra Patel',
     username: 'rp7163',
     headline: 'Software Engineer · Full-Stack Developer',
-    bio: 'Final Year B.Tech Computer Engineering student at PDEU, Gandhinagar — building thoughtful web apps, solving 1300+ DSA problems, and chasing clean code.',
+    bio: 'Final Year B.Tech Computer Engineering student at PDEU, Gandhinagar — building thoughtful web apps, solving 1400+ DSA problems, and chasing clean code.',
     location: 'Ahmedabad, Gujarat, India',
     portfolio_url: 'https://patelrudra.vercel.app',
     github_url: 'https://github.com/rp7163',

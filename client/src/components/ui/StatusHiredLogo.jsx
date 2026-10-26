@@ -12,12 +12,13 @@ export const StatusHiredLogo = ({ className = '', size = 32, variant = 'mark', s
 
   const markSvg = (
     <svg
-      width={pixelSize}
-      height={pixelSize}
+      width={size}
+      height={size}
       viewBox="0 0 48 48"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="shrink-0 transition-transform duration-200"
+      style={{ width: pixelSize, height: pixelSize }}
+      className={`shrink-0 transition-transform duration-200 ${className}`}
       aria-label="StatusHired Logo"
     >
       <defs>

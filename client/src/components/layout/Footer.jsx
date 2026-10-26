@@ -7,7 +7,7 @@ export const Footer = ({
   className = '',
   copyrightText = 'Designed and developed by',
   authorName,
-  content=`Share your valuable feedback & suggestions  `,
+  content=`Share your valuable feedback & suggestions on `,
   feedbackEmail = '23bcp401@sot.pdpu.ac.in',
 }) => {
   const { user } = useAuth();

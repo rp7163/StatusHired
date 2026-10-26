@@ -193,7 +193,7 @@ export const SettingsModal = ({ isOpen, onClose }) => {
           {/* </div> */} 
 
           {/* Device Biometrics & Security Tile */}
-          <div className="p-3.5 rounded-[16px] bg-[#F7FBF8] dark:bg-[#142019] flex items-center justify-between">
+          {/* <div className="p-3.5 rounded-[16px] bg-[#F7FBF8] dark:bg-[#142019] flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-[#10B981]/10 text-[#10B981] flex items-center justify-center">
                 <Fingerprint className="w-4 h-4" />
@@ -222,7 +222,7 @@ export const SettingsModal = ({ isOpen, onClose }) => {
                 {isEnrollingBio ? 'Enrolling…' : 'Enroll'}
               </button>
             )}
-          </div>
+          </div> */}
 
           {/* Export / Download Code ZIP */}
           {/* <a

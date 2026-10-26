@@ -57,7 +57,7 @@ const fade = (i = 0) => ({
 
 export const About = () => {
   useDocumentTitle({
-    title: 'About · StatusHired',
+    title: 'About Creator · StatusHired',
     description: 'Learn more about StatusHired, the developer, and the engineering behind this job application tracker and career pipeline manager.',
     canonicalPath: '/about',
     robots: 'index, follow',
@@ -91,10 +91,10 @@ export const About = () => {
               {a.email && <Chip icon={Mail}>{a.email}</Chip>}
             </div>
 
-            <div className="mt-7 flex flex-wrap justify-center lg:justify-start gap-3">
+            <div className="mt-7 flex flex-wrap justify-center lg:justify-start gap-3 ">
               {a.portfolioUrl && (
                 <a href={a.portfolioUrl} target="_blank" rel="noopener noreferrer">
-                  <Button variant="primary" size="lg" leftIcon={<Globe className="w-4 h-4 text-black" />}><span className='text-black'>View my portfolio</span></Button>
+                  <Button variant="primary" size="lg" leftIcon={<Globe className="w-4 h-4 text-black " />}><span className='text-black'>View my portfolio</span></Button>
                 </a>
               )}
               {a.resumeUrl && (
@@ -275,7 +275,7 @@ export const About = () => {
 
       {/* ================= CONTACT ================= */}
       {(a.email || a.phone) && (
-        <Section eyebrow="Contact" title={a.contactHeading || "Let's work together"}>
+        <Section eyebrow="Contact" title={a.contactHeading || "Let's connect"}>
           <motion.div {...fade()} className="apple-card p-6 sm:p-8 grid md:grid-cols-[1.4fr_1fr] gap-6 items-center">
             <p className="text-[15px] leading-relaxed text-[#54635B] dark:text-[#8AA097]">{a.contactText}</p>
             <div className="space-y-3 text-[14px]">

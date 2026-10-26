@@ -87,6 +87,7 @@ export const ResumeManagerModal = ({ isOpen, onClose, onSelectResume }) => {
           onDragLeave={handleDrag}
           onDragOver={handleDrag}
           onDrop={handleDrop}
+          data-shortcut="upload-resume" // Added for the U keyboard shortcut
           onClick={() => fileInputRef.current?.click()}
           className={`border-2 border-dashed rounded-2xl p-6 text-center cursor-pointer transition-all duration-200 ${
             dragActive

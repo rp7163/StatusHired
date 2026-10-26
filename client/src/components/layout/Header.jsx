@@ -39,7 +39,7 @@ export const NAV_ITEMS = [
   { to: '/resumes', label: 'Resumes', icon: FileText },
   { to: '/reminders', label: 'Reminders', icon: Bell },
   { to: '/profile', label: 'Profile', icon: UserIcon },
-  { to: '/about', label: 'About', icon: Info },
+  { to: '/about', label: 'Connect', icon: Info },
 ];
 
 /* Closes a dropdown when the user clicks anywhere outside of `ref`. */
@@ -106,7 +106,7 @@ export const Header = ({ onOpenCommandPalette, onOpenSettings, onNewReminder }) 
             className="transition"
           />
 
-          <span className="hidden sm:inline-flex items-center h-9 px-3.5 rounded-xl gradient-bg text-white dark:!text-black font-[Outfit] font-bold !text-[15px] tracking-tight shadow-[0_6px_18px_var(--accent-glow)] brightness-100 group-hover:brightness-150 transition cambria-text">
+          <span className="hidden sm:inline-flex items-center h-9 px-3.5 rounded-xl gradient-bg text-white dark:!text-black font-[Outfit] font-bold !text-[15px] tracking-tight shadow-[0_6px_18px_var(--accent-glow)] brightness-100 group-hover:brightness-120 transition cambria-text">
             StatusHired
           </span>
         </Link>

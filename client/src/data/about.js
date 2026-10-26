@@ -14,7 +14,7 @@ export const about = {
   name: 'Rudra Patel',
   // role: 'Computer Engineer',
   // badge: 'Open to Software Engineer and Web Developer roles',
-  tagline: 'Final Year B.Tech Computer Engineering student at PDEU, Gandhinagar — building thoughtful web apps, solving 1300+ DSA problems, and chasing clean code.',
+  tagline: 'Final Year B.Tech Computer Engineering student at PDEU, Gandhinagar — building thoughtful web apps, solving 1400+ DSA problems, and chasing clean code.',
   intro:
     'I build full-stack web apps and solve DSA problems across multiple platforms.',
   degree: 'B.Tech Computer Engineering · PDEU',
@@ -36,7 +36,7 @@ export const about = {
 
   // Big numbers under the hero
   stats: [
-    { value: '1300+', label: 'DSA Problems' },
+    { value: '1400+', label: 'DSA Problems' },
     { value: '8.91', label: 'CGPA' },
     { value: '1682', label: 'LeetCode' },
     { value: '1920', label: 'Coding Ninjas' },
@@ -92,7 +92,7 @@ export const about = {
       url: 'https://github.com/rp7163/Study-Notion-BackEnd',
     },
     {
-      emoji: '🚧',
+      emoji: '',
       title: 'Status Hired — Job Application Tracker',
       period: 'Sept 2026 - Oct 2026',
       description: 'A full-stack web app to keep track of job applications in one place. Users can add every job they apply to, move it across stages like Applied, Interview and Offer on a drag-and-drop board, upload and preview their resumes, and set reminders for interviews and follow-ups. It has secure login with email verification, a personal profile page, and all data is saved per user in MongoDB. Built with the MERN stack and deployed live.',
@@ -135,9 +135,9 @@ export const about = {
   achievements: [
     { title: 'Global Rank 10', text: 'Secured global rank 10 in a weekly competitive coding contest on Coding Ninjas.' },
     { title: 'Specialist', text: 'Specialist on Coding Ninjas with a peak rating of 1920.' },
-    { title: 'CodeChef 1560 / 1897', text: '2★ on CodeChef CP Contest 1560 (curr) & DSA Contest rating of 1897 (max).' },
+    { title: 'CodeChef 1560 / 1932', text: '2★ on CodeChef CP Contest 1560 (curr) & DSA Contest rating of 1932 (max).' },
     { title: 'Pupil · Codeforces', text: 'Pupil on Codeforces with a current rating of 1223.' },
-    { title: '1300+ DSA Problems', text: 'Solved 1300+ DSA problems across Codeforces, LeetCode, CodeChef, and Coding Ninjas.' },
+    { title: '1400+ DSA Problems', text: 'Solved 1400+ DSA problems across Codeforces, LeetCode, CodeChef, and Coding Ninjas.' },
     {
       title: 'NPTEL Top 1%',
       text: "Gold + Elite certificate for scoring 100% in the NPTEL course 'Understanding Incubation and Entrepreneurship' — top 1%.",
@@ -157,7 +157,7 @@ export const about = {
     },
     {
       platform: 'CodeChef',
-      handle: '@soft_pearl_26 · 2★ CP · 1897 DSA',
+      handle: '@soft_pearl_26 · 2★ CP · 1932 DSA',
       rating: '1560',
       ratingLabel: 'CP 2★',
       url: 'https://www.codechef.com/users/soft_pearl_26',
@@ -166,9 +166,9 @@ export const about = {
   ],
 
   // ---------- Contact ----------
-  contactHeading: "Let's work together",
+  contactHeading: "Let's" +"\u00A0".repeat(2) + "connect",
   contactText:
-    "I'm currently looking for Software Engineer and Web Developer fresher roles and interesting internships. The fastest way to reach me is email — I usually reply within 24 hours.",
+    "I'm currently looking for Software Engineer and Web Developer fresher roles and internships. The fastest way to reach me is email — I usually reply within 24 hours.",
 };
 
 export default about;

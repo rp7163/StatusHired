@@ -9,6 +9,8 @@ import { ToastProvider } from './components/ui/Toast.jsx';
 import { ProtectedRoute } from './components/layout/ProtectedRoute.jsx';
 import { AppShell } from './components/layout/AppShell.jsx';
 import { Skeleton } from './components/ui/Skeleton.jsx';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 // Pages (Lazy Loaded for minimal initial bundle and fast first paint)
 const Login = lazy(() => import('./pages/Login.jsx').then((m) => ({ default: m.Login })));
@@ -31,6 +33,19 @@ function RouteFallback() {
     </div>
   );
 }
+function CanonicalUrl() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const canonical = document.getElementById('canonical-url');
+
+    if (canonical) {
+      canonical.href = `https://status-hired.vercel.app${pathname === '/' ? '/' : pathname}`;
+    }
+  }, [pathname]);
+
+  return null;
+}
 
 export default function App() {
   return (
@@ -41,6 +56,7 @@ export default function App() {
             <JobTrackerProvider>
               <SearchProvider>
                 <BrowserRouter>
+                  <CanonicalUrl />
                   <Suspense fallback={<RouteFallback />}>
                     <Routes>
                       {/* Public Authentication Route */}

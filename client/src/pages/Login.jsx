@@ -322,10 +322,11 @@ export const Login = () => {
 
               <form onSubmit={handleVerifyOtp} className="space-y-4 pt-1">
                 <div className="space-y-1.5">
-                  <label className="text-[13px] font-medium text-[#54635B] dark:text-[#8AA097] block text-center">
+                  <label htmlFor="otp-verification-input" className="text-[13px] font-medium text-[#54635B] dark:text-[#8AA097] block text-center">
                     Enter Verification Code
                   </label>
                   <input
+                    id="otp-verification-input"
                     type="text"
                     inputMode="numeric"
                     autoComplete="one-time-code"
@@ -391,10 +392,11 @@ export const Login = () => {
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* Email */}
               <div className="space-y-1.5">
-                <label className="text-[13px] font-medium text-[#54635B] dark:text-[#8AA097] block">
+                <label htmlFor="login-email-input" className="text-[13px] font-medium text-[#54635B] dark:text-[#8AA097] block">
                   Email
                 </label>
                 <input
+                  id="login-email-input"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -409,7 +411,7 @@ export const Login = () => {
               {/* Password */}
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between">
-                  <label className="text-[13px] font-medium text-[#54635B] dark:text-[#8AA097] block">
+                  <label htmlFor="login-password-input" className="text-[13px] font-medium text-[#54635B] dark:text-[#8AA097] block">
                     Password
                   </label>
                   {mode === 'signup' && (
@@ -418,6 +420,7 @@ export const Login = () => {
                 </div>
                 <div className="relative">
                   <input
+                    id="login-password-input"
                     type={showPassword ? 'text' : 'password'}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -459,10 +462,10 @@ export const Login = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="mx-auto px-4  h-[40px] rounded-2xl bg-[#10B981] hover:bg-[#059669] disabled:opacity-50 text-white text-[15px] font-medium transition-all active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer shadow-xs mt-2"
+                className="w-full h-[48px] rounded-2xl bg-[#10B981] hover:bg-[#059669] disabled:opacity-50 text-white text-[15px] font-medium transition-all active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer shadow-xs mt-2"
               >
                 {isLoading ? (
-                  <Loader2 className="w-4 h-4 animate-spin !min-w-10" />
+                  <Loader2 className="w-5 h-5 animate-spin" />
                 ) : mode === 'signin' ? (
                   'Sign in'
                 ) : (
@@ -480,7 +483,7 @@ export const Login = () => {
             <button
               type="button"
               onClick={toggleMode}
-              className="text-[14px] text-[#10B981] hover:underline font-medium cursor-pointer"
+              className="min-h-[44px] py-2 px-3 text-[14px] text-[#10B981] hover:underline font-medium cursor-pointer inline-flex items-center justify-center"
             >
               {mode === 'signin' ? "Don't have an account? Create one" : 'Already have an account? Sign in'}
             </button>
@@ -489,13 +492,13 @@ export const Login = () => {
       </div>
 
       {/* Option 2: One-Time Device Biometrics Setup Modal */}
-      <BiometricEnrollmentModal
+      {/* <BiometricEnrollmentModal
         isOpen={Boolean(pendingBiometricUser)}
         userId={pendingBiometricUser?.id || ''}
         userEmail={pendingBiometricUser?.email || ''}
         onComplete={() => setPendingBiometricUser(null)}
         onSkip={() => setPendingBiometricUser(null)}
-      />
+      /> */}
 
       <DatabaseSetupModal isOpen={isDbSetupModalOpen} onClose={() => setIsDbSetupModalOpen(false)} />
       {/* <Footer className=" w-full !mt-3 border-none bg-inherit" /> */}
